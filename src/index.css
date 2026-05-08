@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  @apply font-sans antialiased;
+  background-color: #FFFFFF;
+  color: #1E293B;
+}
+
+::selection {
+  background-color: #F97316;
+  color: white;
+}
+
+/* Wider, full-bleed container */
+.container-main {
+  width: 100%;
+  max-width: 1480px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 768px) {
+  .container-main { padding-left: 2.5rem; padding-right: 2.5rem; }
+}
+@media (min-width: 1280px) {
+  .container-main { padding-left: 3.5rem; padding-right: 3.5rem; }
+}
+
+.section-space {
+  @apply py-20 lg:py-28;
+}
+
+/* Section label pill — brand orange (Why Choose Us, Industries, inner pages, etc.) */
+.section-label {
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.28);
+  padding: 5px 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #c2410c;
+  margin-bottom: 1rem;
+}
+
+/* ── Buttons ─────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #F97316;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: background-color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background-color: #EA580C;
+  transform: translateY(-2px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #F97316;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: background-color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-accent:hover {
+  background-color: #EA580C;
+  transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.40);
+  padding: 0.8rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-outline-white:hover {
+  background-color: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.70);
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #F97316;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #F97316;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  text-decoration: none;
+  background-color: transparent;
+}
+.btn-outline-primary:hover {
+  background-color: #F97316;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Chat / WhatsApp CTA — navy (avoids green + orange “flag” pairing beside orange buttons) */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #0F2847;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: background-color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-whatsapp:hover {
+  background-color: #060E1A;
+  transform: translateY(-2px);
+}
+
+.btn-outline-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #0A2540;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0A2540;
+  background-color: transparent;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-outline-navy:hover {
+  background-color: #0A2540;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
+}
+
+.spec-badge {
+  @apply inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-slate-300;
+}
+
+/* Dark input placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: #94A3B8;
+}
