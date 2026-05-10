@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiCheckCircle, FiChevronDown, FiShield, FiPackage, FiGlobe } from 'react-icons/fi';
+import DarkMeshBackground from './DarkMeshBackground';
 import { companyInfo } from '../data/siteData';
 
 const badges = ['Washer Specialists', 'ASTM • DIN • BS • IS', 'Custom Sizes', '50+ Years'];
@@ -17,47 +18,12 @@ const Hero = () => {
       className="relative flex min-h-screen items-center overflow-hidden"
       style={{ backgroundColor: '#060E1A' }}
     >
-      {/* ── BACKGROUND LAYERS ── */}
-
-      {/* Dot-grid overlay */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)',
-          backgroundSize: '38px 38px',
-        }}
-      />
-
-      {/* Deep radial glow — centre top */}
-      <div
-        className="pointer-events-none absolute -top-60 left-1/2 -translate-x-1/2 h-[700px] w-[900px] rounded-full blur-3xl"
-        style={{ backgroundColor: 'rgba(17,44,88,0.55)' }}
-      />
-
-      {/* Orange accent glow — top right */}
-      <div
-        className="pointer-events-none absolute -top-20 -right-20 h-[420px] w-[420px] rounded-full blur-3xl"
-        style={{ backgroundColor: 'rgba(56,115,178,0.09)' }}
-      />
-
-      {/* Orange accent glow — bottom left */}
-      <div
-        className="pointer-events-none absolute -bottom-20 -left-20 h-[320px] w-[320px] rounded-full blur-3xl"
-        style={{ backgroundColor: 'rgba(30,58,138,0.06)' }}
-      />
-
-      {/* Thin diagonal lines — very subtle industrial feel */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage:
-            'repeating-linear-gradient(135deg, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 1px, transparent 1px, transparent 60px)',
-        }}
-      />
+      {/* Same mesh + navy as Knowledge Base (Resources) */}
+      <DarkMeshBackground />
 
       {/* Top border accent line */}
       <div
-        className="pointer-events-none absolute top-0 left-0 right-0 h-[3px]"
+        className="pointer-events-none absolute top-0 left-0 right-0 z-[1] h-[3px]"
         style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.35) 55%, transparent 100%)' }}
       />
 
@@ -88,7 +54,7 @@ const Hero = () => {
           >
             Washers &amp;
             <br />
-            <span className="text-slate-200">Industrial</span>
+            Industrial
             <br />
             Fasteners.
           </motion.h1>
@@ -100,8 +66,8 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.55 }}
             className="mt-6 text-lg leading-8 text-slate-300"
           >
-            <span className="font-semibold text-white">{companyInfo.name}</span> — India's trusted
-            manufacturer and supplier of precision washers, screws, nuts, bolts and all industrial fasteners.
+            <span className="font-semibold text-white">{companyInfo.name}</span>, India's trusted manufacturer
+            and supplier of precision washers, screws, nuts, bolts and all industrial fasteners.
             Built to international standards, delivered pan-India.
           </motion.p>
 
@@ -124,16 +90,22 @@ const Hero = () => {
             ))}
           </motion.div>
 
-          {/* Made in India badge */}
+          {/* Made in India badge — flag SVG for visibility on dark bg */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.75 }}
-            className="mt-5 inline-flex items-center gap-2 rounded-full border px-4 py-2"
-            style={{ borderColor: 'rgba(255,255,255,0.22)', backgroundColor: 'rgba(255,255,255,0.06)' }}
+            className="mt-5 inline-flex items-center gap-2.5 rounded-full border px-4 py-2"
+            style={{ borderColor: 'rgba(255,255,255,0.22)', backgroundColor: 'rgba(255,255,255,0.08)' }}
           >
-            <span className="text-xl leading-none">🇮🇳</span>
-            <span className="text-sm font-bold tracking-wide text-slate-200">Made in India</span>
+            <img
+              src="/india-flag.svg"
+              alt=""
+              className="h-7 w-[42px] shrink-0 rounded-sm border border-white/40 bg-white object-cover shadow-sm"
+              width="42"
+              height="28"
+            />
+            <span className="text-sm font-bold tracking-wide text-white">Made in India</span>
           </motion.div>
 
           {/* CTA buttons */}
@@ -175,7 +147,7 @@ const Hero = () => {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 flex flex-col items-center gap-1"
         style={{ color: 'rgba(148,163,184,0.5)' }}
       >
         <span className="text-[10px] uppercase tracking-widest">Scroll</span>

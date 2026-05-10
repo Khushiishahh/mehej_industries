@@ -43,13 +43,26 @@ const Navbar = () => {
 
   const handleAnchor = (e, anchor) => {
     e.preventDefault();
+    const menuWasOpen = open;
+    const hash = anchor.startsWith('#') ? anchor.slice(1) : anchor;
     setOpen(false);
+
     if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => document.querySelector(anchor)?.scrollIntoView({ behavior: 'smooth' }), 150);
-    } else {
-      document.querySelector(anchor)?.scrollIntoView({ behavior: 'smooth' });
+      navigate({ pathname: '/', hash: `#${hash}` });
+      return;
     }
+
+    const doScroll = () => {
+      const el = document.querySelector(anchor.startsWith('#') ? anchor : `#${anchor}`);
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    if (typeof window !== 'undefined' && menuWasOpen && window.matchMedia('(max-width: 1023px)').matches) {
+      setTimeout(doScroll, 400);
+      return;
+    }
+
+    doScroll();
   };
 
   const isHome = location.pathname === '/';

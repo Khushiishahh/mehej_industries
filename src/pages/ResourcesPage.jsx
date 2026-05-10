@@ -6,6 +6,7 @@ import {
   FiAlertCircle,
 } from 'react-icons/fi';
 import { companyInfo } from '../data/siteData';
+import DarkMeshBackground from '../components/DarkMeshBackground';
 
 const tabs = [
   { id: 'washer', label: 'Washer Guides', icon: FiBookOpen },
@@ -102,31 +103,7 @@ const WasherGuidesPanel = () => {
     <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
       {/* Accordions */}
       <div className="space-y-3">
-        <Accordion title="How to Choose the Right Washer" tag="Beginner" isOpen={open === 0} onToggle={() => toggle(0)}>
-          <p className="text-sm leading-7 text-slate-600">
-            Selecting the right washer depends on the application, load requirements, and environment. Use this quick reference:
-          </p>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {[
-              { type: 'Flat Washer', use: 'Load distribution and surface protection in general assemblies.' },
-              { type: 'Spring Washer', use: 'Vibration resistance — ideal for automotive and machinery.' },
-              { type: 'Tooth Lock Washer', use: 'Positive locking in electrical and high-vibration applications.' },
-              { type: 'Belleville Washer', use: 'High load in compact axial space with controlled spring force.' },
-              { type: 'Wave Washer', use: 'Lightweight preload in precision instruments and motors.' },
-              { type: 'Sealing Washer', use: 'Watertight seal in plumbing, roofing, and pipelines.' },
-            ].map((r) => (
-              <div key={r.type} className="rounded-xl p-3" style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0' }}>
-                <p className="text-xs font-extrabold text-[#0A2540]">{r.type}</p>
-                <p className="mt-1 text-xs leading-5 text-slate-600">{r.use}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-4 text-xs text-slate-600">
-            <span className="font-semibold text-slate-900">Tip:</span> Always match the washer material to the bolt material to avoid galvanic corrosion.
-          </p>
-        </Accordion>
-
-        <Accordion title="Washer Types Explained" tag="Reference" isOpen={open === 1} onToggle={() => toggle(1)}>
+        <Accordion title="Washer Types Explained" tag="Reference" isOpen={open === 0} onToggle={() => toggle(0)}>
           <div className="space-y-4">
             {[
               { name: 'Plain / Flat Washer', std: 'DIN 125, DIN 9021, ISO 7089', desc: 'The most common type. Distributes clamping force over a wider area. Large OD (DIN 9021) variant used when extra bearing surface is needed.' },
@@ -149,6 +126,30 @@ const WasherGuidesPanel = () => {
               </div>
             ))}
           </div>
+        </Accordion>
+
+        <Accordion title="How to Choose the Right Washer" tag="Beginner" isOpen={open === 1} onToggle={() => toggle(1)}>
+          <p className="text-sm leading-7 text-slate-600">
+            Selecting the right washer depends on the application, load requirements, and environment. Use this quick reference:
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {[
+              { type: 'Flat Washer', use: 'Load distribution and surface protection in general assemblies.' },
+              { type: 'Spring Washer', use: 'Vibration resistance (ideal for automotive and machinery).' },
+              { type: 'Tooth Lock Washer', use: 'Positive locking in electrical and high-vibration applications.' },
+              { type: 'Belleville Washer', use: 'High load in compact axial space with controlled spring force.' },
+              { type: 'Wave Washer', use: 'Lightweight preload in precision instruments and motors.' },
+              { type: 'Sealing Washer', use: 'Watertight seal in plumbing, roofing, and pipelines.' },
+            ].map((r) => (
+              <div key={r.type} className="rounded-xl p-3" style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0' }}>
+                <p className="text-xs font-extrabold text-[#0A2540]">{r.type}</p>
+                <p className="mt-1 text-xs leading-5 text-slate-600">{r.use}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-slate-600">
+            <span className="font-semibold text-slate-900">Tip:</span> Always match the washer material to the bolt material to avoid galvanic corrosion.
+          </p>
         </Accordion>
 
         <Accordion title="Material Selection Guide" tag="Important" isOpen={open === 2} onToggle={() => toggle(2)}>
@@ -234,7 +235,7 @@ const WasherGuidesPanel = () => {
             <p className="text-xs font-extrabold text-amber-900">Material Warning</p>
           </div>
           <p className="mt-2 text-sm leading-6 text-slate-600">
-            Never use carbon steel washers with stainless steel bolts in wet environments — galvanic corrosion will occur at the contact point.
+            Never use carbon steel washers with stainless steel bolts in wet environments: galvanic corrosion will occur at the contact point.
           </p>
         </div>
         <div className="rounded-2xl p-5" style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0' }}>
@@ -281,9 +282,9 @@ const FastenerGuidesPanel = () => {
               <tbody>
                 {[
                   { g: '4.6', t: '400', y: '240', use: 'Non-critical, general purpose' },
-                  { g: '8.8', t: '800', y: '640', use: 'Structural — most common grade' },
+                  { g: '8.8', t: '800', y: '640', use: 'Structural, most common grade' },
                   { g: '10.9', t: '1040', y: '940', use: 'High-strength structural & machinery' },
-                  { g: '12.9', t: '1220', y: '1100', use: 'Highest grade — precision & automotive' },
+                  { g: '12.9', t: '1220', y: '1100', use: 'Highest grade, precision & automotive' },
                 ].map((r, i) => (
                   <tr key={r.g} style={{ backgroundColor: i % 2 === 0 ? '#FFFFFF' : '#F8FAFC' }}>
                     <td className="p-3 text-sm font-extrabold text-[#0A2540]">{r.g}</td>
@@ -300,7 +301,7 @@ const FastenerGuidesPanel = () => {
           </p>
         </Accordion>
 
-        <Accordion title="Thread Standards — Metric, UNC, BSW" tag="Reference" isOpen={open === 1} onToggle={() => toggle(1)}>
+        <Accordion title="Thread Standards (Metric, UNC, BSW)" tag="Reference" isOpen={open === 1} onToggle={() => toggle(1)}>
           <div className="space-y-4">
             {[
               { std: 'Metric ISO (Most Common)', detail: 'Thread pitch expressed in mm. M10 × 1.5 means 10 mm diameter, 1.5 mm between threads. Used globally and as standard in India.', examples: ['M6 × 1.0', 'M8 × 1.25', 'M10 × 1.5', 'M12 × 1.75', 'M16 × 2.0'] },
@@ -413,14 +414,14 @@ const FastenerGuidesPanel = () => {
    TAB 3 — FAQs
 ══════════════════════════════════════════════ */
 const faqs = [
-  { q: 'What is the difference between DIN and ISO standards?', a: 'DIN (Deutsches Institut für Normung) is the German national standard; ISO is the international standard. Most modern DIN fastener standards have been harmonised with ISO equivalents — for example, DIN 933 (hex bolt, full thread) aligns with ISO 4017. We supply to both and can match your specific standard requirement.' },
+  { q: 'What is the difference between DIN and ISO standards?', a: 'DIN (Deutsches Institut für Normung) is the German national standard; ISO is the international standard. Most modern DIN fastener standards have been harmonised with ISO equivalents; for example, DIN 933 (hex bolt, full thread) aligns with ISO 4017. We supply to both and can match your specific standard requirement.' },
   { q: 'What material should I choose for outdoor or marine applications?', a: 'For basic outdoor use, zinc-plated carbon steel is sufficient. For humid or coastal environments, SS304 stainless steel is recommended. For marine, sea water, or chemical plant environments, SS316 is the correct choice due to its higher molybdenum content which resists chloride-induced corrosion.' },
-  { q: 'Can you supply custom sizes and non-standard dimensions?', a: 'Yes — especially for washers, which is our primary manufactured product. We accept drawing-based custom orders with tolerances as tight as ±0.01 mm. Custom bolt lengths, special diameters, non-standard thread pitches, and OEM-specific designs are all possible. Contact us with your drawing or specification.' },
+  { q: 'Can you supply custom sizes and non-standard dimensions?', a: 'Yes, especially for washers, which is our primary manufactured product. We accept drawing-based custom orders with tolerances as tight as ±0.01 mm. Custom bolt lengths, special diameters, non-standard thread pitches, and OEM-specific designs are all possible. Contact us with your drawing or specification.' },
   { q: 'What is the minimum order quantity (MOQ)?', a: 'MOQ varies by product, material, and whether the item is standard or custom. For standard washers and fasteners, we can supply small quantities. For custom-manufactured washers, a minimum batch is typically required depending on tooling. Please share your requirement and we will advise on pricing and MOQ.' },
-  { q: 'How do I calculate the correct washer size for a given bolt?', a: 'The washer inner diameter (ID) should be slightly larger than the bolt shank — typically bolt diameter + 0.3 to 0.5 mm. The outer diameter (OD) should be large enough to distribute load without interfering with adjacent features. For soft materials (aluminium, plastic, wood), use DIN 9021 large OD washers. Standard DIN/ISO washer sizes are pre-defined for each bolt size.' },
-  { q: 'What is the difference between hot dip galvanizing and zinc electroplating?', a: 'Zinc electroplating deposits a thin (5–15 micron) zinc layer via an electrical process. It produces a smooth, uniform finish and is cost-effective — suitable for indoor and mild outdoor use. Hot dip galvanizing immerses the part in molten zinc, creating a much thicker (45–85 micron) coating that provides significantly better corrosion protection for outdoor and underground applications.' },
-  { q: 'Do you provide material test certificates?', a: 'Yes. Material test certificates (MTC) are available on request for standard products. For critical applications — oil & gas, aerospace, structural steelwork — we can provide full mill certification, hardness test reports, dimensional inspection reports, and compliance documentation to the relevant standard.' },
-  { q: 'What is the difference between a coarse and fine thread?', a: 'Coarse thread (e.g. M10 × 1.5) has a larger pitch — it assembles faster, is more tolerant of damage, and better suited to soft materials. Fine thread (e.g. M10 × 1.25) has a smaller pitch — it generates higher clamping force per turn, offers better vibration resistance, and is used in precision applications and thin-walled components.' },
+  { q: 'How do I calculate the correct washer size for a given bolt?', a: 'The washer inner diameter (ID) should be slightly larger than the bolt shank (typically bolt diameter + 0.3 to 0.5 mm). The outer diameter (OD) should be large enough to distribute load without interfering with adjacent features. For soft materials (aluminium, plastic, wood), use DIN 9021 large OD washers. Standard DIN/ISO washer sizes are pre-defined for each bolt size.' },
+  { q: 'What is the difference between hot dip galvanizing and zinc electroplating?', a: 'Zinc electroplating deposits a thin (5–15 micron) zinc layer via an electrical process. It produces a smooth, uniform finish and is cost-effective, suitable for indoor and mild outdoor use. Hot dip galvanizing immerses the part in molten zinc, creating a much thicker (45–85 micron) coating that provides significantly better corrosion protection for outdoor and underground applications.' },
+  { q: 'Do you provide material test certificates?', a: 'Yes. Material test certificates (MTC) are available on request for standard products. For critical applications (oil & gas, aerospace, structural steelwork) we can provide full mill certification, hardness test reports, dimensional inspection reports, and compliance documentation to the relevant standard.' },
+  { q: 'What is the difference between a coarse and fine thread?', a: 'Coarse thread (e.g. M10 × 1.5) has a larger pitch: it assembles faster, is more tolerant of damage, and is better suited to soft materials. Fine thread (e.g. M10 × 1.25) has a smaller pitch: it generates higher clamping force per turn, offers better vibration resistance, and is used in precision applications and thin-walled components.' },
 ];
 
 const FaqPanel = () => {
@@ -500,11 +501,11 @@ const glossaryItems = [
   { term: 'Thread Pitch', cat: 'Dimensional', def: 'Distance between adjacent thread crests in mm. Coarse pitch = larger number; fine pitch = smaller number for the same diameter.' },
   { term: 'Proof Load', cat: 'Mechanical', def: 'Maximum tensile load a fastener can withstand without permanent deformation. Typically 85–90% of yield load. Used for quality inspection.' },
   { term: 'Galvanic Corrosion', cat: 'Corrosion', def: 'Accelerated corrosion when two dissimilar metals are in electrical contact with moisture present. Match washer and bolt materials to prevent this.' },
-  { term: 'DIN', cat: 'Standard', def: 'Deutsches Institut für Normung — German Institute for Standardisation. Widely used for fastener dimensions globally (e.g. DIN 933, DIN 125).' },
+  { term: 'DIN', cat: 'Standard', def: 'Deutsches Institut für Normung (German Institute for Standardisation). Widely used for fastener dimensions globally (e.g. DIN 933, DIN 125).' },
   { term: 'ISO', cat: 'Standard', def: 'International Organisation for Standardisation. Globally recognised fastener standards, often harmonised with DIN (e.g. ISO 4017 ≈ DIN 933).' },
   { term: 'ASTM', cat: 'Standard', def: 'American Society for Testing and Materials. Defines material grades for US and international use (e.g. ASTM A307, A325, A193 B7).' },
   { term: 'Hardness (HV / HRC)', cat: 'Mechanical', def: 'Resistance of a material to deformation. Vickers (HV) and Rockwell C (HRC) are common scales. Higher hardness = higher strength, potentially more brittle.' },
-  { term: 'AQL', cat: 'Quality', def: 'Acceptable Quality Level — statistical sampling standard for inspection defining the maximum acceptable defect rate in a production batch.' },
+  { term: 'AQL', cat: 'Quality', def: 'Acceptable Quality Level, a statistical sampling standard for inspection defining the maximum acceptable defect rate in a production batch.' },
   { term: 'Clamp Load (Preload)', cat: 'Mechanical', def: 'Tension created in a bolt when tightened. Proper preload keeps joint members in compression and prevents loosening under service loads.' },
   { term: 'Galling', cat: 'Corrosion', def: 'Adhesive wear caused by friction between mating threads, especially in stainless steel. Prevented by lubrication or anti-galling coatings.' },
   { term: 'Nominal Diameter', cat: 'Dimensional', def: 'Standard reference diameter of a fastener (e.g. M10 = 10 mm nominal). Actual shank is slightly smaller due to thread tolerances.' },
@@ -594,11 +595,10 @@ const ResourcesPage = () => {
         className="relative overflow-hidden py-20 lg:py-28"
         style={{ backgroundColor: '#060E1A' }}
       >
-        <div className="pointer-events-none absolute inset-0 opacity-30"
-          style={{ backgroundImage: 'radial-gradient(circle at 1.5px 1.5px, rgba(249,115,22,0.12) 1.5px, transparent 0)', backgroundSize: '32px 32px' }} />
+        <DarkMeshBackground />
         <div className="relative z-10 container-main">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-block rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-slate-200">
+            <span className="section-label !mb-4 !inline-block !border-primary/35 !bg-primary/15 !text-primary">
               Technical Resources
             </span>
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white lg:text-5xl">Knowledge Base</h1>

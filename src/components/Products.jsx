@@ -141,13 +141,13 @@ const WasherCarousel = () => {
                       <div className="rounded-xl p-3" style={{ backgroundColor: NAVY_CARD, border: `1px solid ${NAVY_BORDER}` }}>
                         <p className="text-[10px] font-bold uppercase tracking-wide text-primary">Standards</p>
                         <p className="mt-1 text-xs font-semibold text-slate-200">
-                          {item.specs.find(s => s.label === 'Standards')?.value || item.specs[1]?.value || '—'}
+                          {item.specs.find(s => s.label === 'Standards')?.value || item.specs[1]?.value || 'N/A'}
                         </p>
                       </div>
                       <div className="rounded-xl p-3" style={{ backgroundColor: NAVY_CARD, border: `1px solid ${NAVY_BORDER}` }}>
                         <p className="text-[10px] font-bold uppercase tracking-wide text-primary">Materials</p>
                         <p className="mt-1 text-xs font-semibold text-slate-200">
-                          {item.specs.find(s => s.label === 'Materials')?.value?.split(',')[0] || '—'}...
+                          {item.specs.find(s => s.label === 'Materials')?.value?.split(',')[0] || 'N/A'}...
                         </p>
                       </div>
                     </div>
@@ -299,8 +299,7 @@ const Products = () => (
             <span className={productsEyebrowClass}>Our Speciality</span>
           </div>
           <h2 className="text-4xl font-extrabold text-white sm:text-5xl">
-            Precision Washers{' '}
-            <span className="border-b-2 border-white/25 pb-0.5">Manufactured in India.</span>
+            Precision Washers Manufactured in India.
           </h2>
           <p className="mt-3 max-w-xl text-base leading-8 text-slate-400">
             We specialise in manufacturing all types of precision washers. Click any card to view

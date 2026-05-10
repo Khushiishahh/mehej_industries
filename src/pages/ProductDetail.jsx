@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowLeft, FiCheckCircle, FiMessageCircle, FiDownload } from 'react-icons/fi';
 import { products, companyInfo } from '../data/siteData';
+import DarkMeshBackground from '../components/DarkMeshBackground';
 
 const typeImagePools = {
   bolts: [
@@ -38,7 +39,20 @@ const typeImagePools = {
 };
 const defaultPool = typeImagePools.bolts;
 
-const HERO_BG = '#0A1628';
+function typeEntryLabel(type) {
+  return typeof type === 'string' ? type : type?.name ?? '';
+}
+
+/** Per-variant image: explicit file in `public/assets/{category}/` overrides mergeTypeImages placeholders. */
+function resolveTypeImage(product, index, imgPool) {
+  const row = product.types[index];
+  const direct = typeof row === 'object' && row?.image;
+  if (direct) return direct;
+  if (product.typeImages?.[index]) return product.typeImages[index];
+  return imgPool[index % imgPool.length];
+}
+
+const HERO_BG_MESH = '#060E1A';
 const BRAND_NAVY = '#060E1A';
 const BRAND_BORDER = '#1E3A5F';
 
@@ -66,6 +80,7 @@ const ProductDetail = () => {
 
   const Icon    = product.icon;
   const imgPool = typeImagePools[slug] || defaultPool;
+  const typeImg = (i) => resolveTypeImage(product, i, imgPool);
 
   return (
     <div className="min-h-screen bg-white">
@@ -83,10 +98,11 @@ const ProductDetail = () => {
         </div>
       </div>
 
-      {/* PRODUCT HERO — dark banner */}
-      <section style={{ backgroundColor: HERO_BG }}>
-        <div className="container-main py-16 lg:py-24">
-          <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.35) 60%, transparent)' }} />
+      {/* PRODUCT HERO — same navy + mesh as Knowledge Base */}
+      <section className="relative overflow-hidden" style={{ backgroundColor: HERO_BG_MESH }}>
+        <DarkMeshBackground />
+        <div className="pointer-events-none absolute top-0 left-0 right-0 z-[1] h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.35) 60%, transparent)' }} />
+        <div className="container-main relative z-10 py-16 lg:py-24">
           <div className="grid items-center gap-12 lg:grid-cols-2">
 
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -160,7 +176,7 @@ const ProductDetail = () => {
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {product.types.map((type, i) => (
                 <motion.div
-                  key={type}
+                  key={`${product.slug}-${i}-${typeEntryLabel(type)}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -171,18 +187,26 @@ const ProductDetail = () => {
                   onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(15,40,71,0.35)'; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E8F0'; }}
                 >
-                  <div className="relative overflow-hidden">
+                  <div className="relative flex aspect-[5/4] w-full items-center justify-center border-b border-slate-100 bg-slate-50 p-3 sm:aspect-square sm:p-3.5">
                     <img
-                      src={imgPool[i % imgPool.length]}
-                      alt={type}
-                      className="h-32 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      src={typeImg(i)}
+                      alt={typeEntryLabel(type)}
+                      className="max-h-full max-w-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                      onError={(e) => {
+                        const el = e.currentTarget;
+                        if (el.dataset.fallback === '1') return;
+                        el.dataset.fallback = '1';
+                        el.src = product.image;
+                      }}
                     />
-                    <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                      style={{ background: 'linear-gradient(to top, rgba(10,37,64,0.35) 0%, transparent 70%)' }} />
+                    <div
+                      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      style={{ background: 'linear-gradient(to top, rgba(10,37,64,0.12) 0%, transparent 55%)' }}
+                    />
                   </div>
                   <div className="p-3">
                     <p className="text-xs font-bold leading-snug text-slate-800 group-hover:text-[#0A2540] transition-colors line-clamp-2">
-                      {type}
+                      {typeEntryLabel(type)}
                     </p>
                   </div>
                 </motion.div>

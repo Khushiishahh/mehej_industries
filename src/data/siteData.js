@@ -1,5 +1,5 @@
 import {
-  FiTool,
+  FiBox,
   FiSettings,
   FiLayers,
   FiCheckCircle,
@@ -7,6 +7,30 @@ import {
   FiShield,
   FiTruck,
 } from 'react-icons/fi';
+import {
+  boltTypeImportedUrls,
+  nutTypeImportedUrls,
+  screwTypeImportedUrls,
+} from './productTypeImageUrls';
+import {
+  BOLT_VARIANTS,
+  NUT_VARIANTS,
+  SCREW_VARIANTS,
+  mapVariantRows,
+} from './otherProductVariants';
+
+/**
+ * Fallback when a variant has no image set: numbered files under
+ * `public/assets/product-types/{folder}/01.jpg`, then Vite-imported
+ * `src/assets/product-types/{folder}/` (see productTypeImageUrls.js).
+ */
+const productTypeGridImages = (folder, count) =>
+  Array.from({ length: count }, (_, i) => `/assets/product-types/${folder}/${String(i + 1).padStart(2, '0')}.jpg`);
+
+const mergeTypeImages = (imported, folder, count) => {
+  const pub = productTypeGridImages(folder, count);
+  return Array.from({ length: count }, (_, i) => imported[i] || pub[i]);
+};
 
 export const companyInfo = {
   name: 'MEHEJ FASTENERS',
@@ -256,36 +280,135 @@ export const washerTypes = [
    Only 3 categories: Bolts, Nuts, Screws
 ────────────────────────────────────────────── */
 export const products = [
+
   {
     id: 1,
+    slug: 'nuts',
+    name: 'Nut',
+    shortDesc: 'Complete nut range in all grades and materials for pairing with bolts in industrial assemblies.',
+    image:
+      'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80',
+    icon: FiSettings,
+    intro: 'Threaded fastening solutions designed for reliable pairing with bolts in all assemblies.',
+    types: [
+      {
+        name: 'Hex Nut',
+        image: '/assets/nuts/hex-nut.jpg',
+      },
+      {
+        name: 'Square Nut',
+        image: '/assets/nuts/square-nut.jpg',
+      },
+      {
+        name: 'Flange Nut',
+        image: '/assets/nuts/flange-nut.jpg',
+      },
+      {
+        name: 'Wing Nut',
+        image: '/assets/nuts/wing-nut.jpg',
+      },
+      {
+        name: 'Nylock Nut',
+        image: '/assets/nuts/nylock-nut.jpg',
+      },
+      {
+        name: 'Slotted Hex Nut',
+        image: '/assets/nuts/slotted-hex-nut.jpg',
+      },
+      {
+        name: 'Knurled Nut',
+        image: '/assets/nuts/knurled-nut.jpg',
+      },
+      {
+        name: 'Lock Nut',
+        image: '/assets/nuts/lock-nut.jpg',
+      },
+      {
+        name: 'Weld Nut',
+        image: '/assets/nuts/weld-nut.jpg',
+      },
+      {
+        name: 'Dome Nut',
+        image: '/assets/nuts/dome-nut.jpg',
+      },
+      {
+        name: 'Keps Lock Nut',
+        image: '/assets/nuts/keps-lock-nut.jpg',
+      },
+    ],
+    
+    specs: [
+      'Dimension: ASTM, DIN, BS, GB, IS and all international standards',
+      'Size: M3 to M75 or 1/8" to 3"',
+      'Heat Treatment: Annealing, Stress Relieving, Case Hardening, Quenching and Tempering',
+      'Materials: Carbon Steel, Stainless Steel, Brass, Copper',
+    ],
+    applications: [
+      'Automotive & Transportation',
+      'Railway Industry',
+      'Heavy Equipment Manufacturing',
+      'Energy Sector',
+      'Construction Industry',
+    ],
+  },
+  {
+    id: 2,
     slug: 'bolts',
     name: 'Bolt',
     shortDesc: 'High-strength structural and mechanical bolts for demanding industrial assemblies.',
     image:
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
-    icon: FiTool,
+    icon: FiBox,
     intro:
       'Industrial bolts for secure assembly across structural, mechanical, and heavy-duty applications.',
+
     types: [
-      'Hex Head Bolt',
-      'Square Head Bolt',
-      'T Bolt',
-      'Flange Bolt',
-      'J Bolt',
-      'U Bolt',
-      'L Bolt',
-      'HT 8.8 / 10.9 / 12.9',
-      'Carriage Bolt',
-      'Eye Bolt',
-      'Coach Bolt',
-      'Stud Bolt',
-      'Plow Bolt',
-      'Step Bolt',
-      'Elevator Bolt',
-      'Anchor Bolt',
-      'Threaded Rod',
-      'Custom Made Bolt',
+      {
+        name: 'Hex Head Bolt',
+        image: '/assets/bolts/hex-head-bolt.jpg',
+      },
+      {
+        name: 'Square Head Bolt',
+        image: '/assets/bolts/square-head-bolt.jpg',
+      },
+      {
+        name: 'Anchor Bolt',
+        image: '/assets/bolts/anchor-bolt.jpg',
+      },
+      {
+        name: 'Button Head Bolt',
+        image: '/assets/bolts/button-head-bolt.jpg',
+      },
+      {
+        name: 'Flange Bolt',
+        image: '/assets/bolts/flange-bolt.jpg',
+      },
+      {
+        name: 'Eye Bolt',
+        image: '/assets/bolts/eye-bolt.jpg',
+      },
+      {
+        name: 'Carriage Bolt',
+        image: '/assets/bolts/carriage-bolt.jpg',
+      },
+      {
+        name: 'T Bolt',
+        image: '/assets/bolts/t-bolt.jpg',
+      },
+      {
+        name: 'U Bolt',
+        image: '/assets/bolts/u-bolt.jpg',
+      },
+      {
+        name: 'J Bolt',
+        image: '/assets/bolts/j-bolt.jpg',
+      },
     ],
+
+
+      
+    
+    
     specs: [
       'Dimension: ASTM, DIN, BS, GB, IS and all international standards',
       'Length: 10 mm up to 500 mm & 3/8" up to 20"',
@@ -302,49 +425,7 @@ export const products = [
       'Heavy Machinery Manufacturing',
     ],
   },
-  {
-    id: 2,
-    slug: 'nuts',
-    name: 'Nut',
-    shortDesc: 'Complete nut range in all grades and materials for pairing with bolts in industrial assemblies.',
-    image:
-      'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80',
-    icon: FiSettings,
-    intro: 'Threaded fastening solutions designed for reliable pairing with bolts in all assemblies.',
-    types: [
-      'Hex Nut',
-      'Heavy Hex Nut',
-      'Lock Nut',
-      'Nylock Nut',
-      'Weld Nut',
-      'Dome Nut / Cap Nut',
-      'Flange Nut',
-      'Square Nut',
-      'Eye Nut',
-      'T-Nut',
-      'Shear Nut',
-      'Keps-K Lock Nut',
-      'Knurled Thumb Nut',
-      'Castle Nut / Slotted Hex Nut',
-      'Hex Jam Nut',
-      'Coupling Nut',
-      'Wing Nut',
-      'Prevailing Torque Lock Nut',
-    ],
-    specs: [
-      'Dimension: ASTM, DIN, BS, GB, IS and all international standards',
-      'Size: M3 to M75 or 1/8" to 3"',
-      'Heat Treatment: Annealing, Stress Relieving, Case Hardening, Quenching and Tempering',
-      'Materials: Carbon Steel, Stainless Steel, Brass, Copper',
-    ],
-    applications: [
-      'Automotive & Transportation',
-      'Railway Industry',
-      'Heavy Equipment Manufacturing',
-      'Energy Sector',
-      'Construction Industry',
-    ],
-  },
+  
   {
     id: 3,
     slug: 'screws',
@@ -355,26 +436,63 @@ export const products = [
     icon: FiLayers,
     intro:
       'Comprehensive screw range covering machine screws, socket head screws, and self-tapping screws.',
+    
     types: [
-      'Pan Head Machine Screw',
-      'CSK Machine Screw',
-      'Cheese / Round Head Screw',
-      'Hex Head Machine Screw',
-      'Allen Bolt / Socket Head Cap Screw',
-      'Allen CSK Bolt',
-      'Grub Screw / Set Screw',
-      'Button Head Screw',
-      'Pan Head Self-Tapping Screw',
-      'CSK Self-Tapping Screw',
-      'Hex Head Self-Tapping Screw',
-      'Wafer Head Self-Tapping Screw',
-      'Self-Drilling Screw (Tek Screw)',
-      'Wood Screw',
-      'Coach Screw',
-      'Truss Head Screw',
-      'Oval Head Screw',
-      'Custom Made Screw',
+      {
+        name: 'Allen CSK Screw',
+        image: '/assets/screws/allen-csk-screw.jpg',
+      },
+      {
+        name: 'CSK PHILLIPS Head 2 Screw',
+        image: '/assets/screws/csk-phillips-head-2-screw.jpg',
+      },
+      {
+        name: 'Button Head Socket Cap Self Tapping Screw',
+        image: '/assets/screws/button-head-socket-cap-self-tapping-screw.jpg',
+      },
+      {
+        name: 'Countersunk Head Machine Screws',
+        image: '/assets/screws/countersunk-head-machine-screws.jpg',
+      },
+      {
+        name: 'Button Head Screw',
+        image: '/assets/screws/button-head-screw.jpg',
+      },
+      {
+        name: 'CSK Slotted Screw',
+        image: '/assets/screws/csk-slotted-screw.jpg',
+      },
+      {
+        name: 'Hex Head Self Tapping Screw',
+        image: '/assets/screws/hex-head-self-tapping-screw.jpg',
+      },
+
+      {
+        name: 'Pan Head Screw',
+        image: '/assets/screws/pan-head-screw.jpg',
+      },
+      {
+        name: 'Phillips Oval Head Screw',
+        image: '/assets/screws/phillips-oval-head-screw.jpg',
+      },
+      {
+        name: 'Pan Slotted Head Screw',
+        image: '/assets/screws/pan-slotted-head-screw.jpg',
+      },
+      {
+        name: 'Pan Phillips Screws',
+        image: '/assets/screws/pan-phillips-screw.jpg',
+      },
+      {
+        name: 'Pan Head Self Drilling Screw',
+        image: '/assets/screws/pan-head-self-drilling-screw.jpg',
+      },
+      {
+        name: 'Hex Flange Head Self Drilling Screw',
+        image: '/assets/screws/hex-flange-head-self-drilling-screw.jpg',
+      },
     ],
+
     specs: [
       'Dimension: ASTM, DIN, BS, GB, IS and all international standards',
       'Length: 3 mm to 200 mm',

@@ -25,7 +25,7 @@ const materials = [
 const qualitySteps = [
   { step: '01', title: 'Raw Material Inspection',    desc: 'All incoming materials are tested for chemical composition, hardness, and dimensional accuracy before use.' },
   { step: '02', title: 'In-Process Checks',          desc: 'Continuous monitoring of dimensions, thread pitch, head height, and surface finish during production.' },
-  { step: '03', title: 'Heat Treatment Verification', desc: 'Mechanical property testing post heat treatment — tensile strength, yield, elongation, and hardness.' },
+  { step: '03', title: 'Heat Treatment Verification', desc: 'Mechanical property testing post heat treatment: tensile strength, yield, elongation, and hardness.' },
   { step: '04', title: 'Final Inspection',           desc: '100% visual inspection plus sampling to international AQL standards before packing and dispatch.' },
 ];
 
@@ -63,7 +63,7 @@ const QualityPage = () => (
         <div className="mb-12 text-center">
           <span className="section-label">Supported Standards</span>
           <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">Products aligned to global standards.</h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-slate-600">We manufacture to whichever standard your application requires — fully traceable and documented.</p>
+          <p className="mx-auto mt-4 max-w-xl text-base text-slate-600">We manufacture to whichever standard your application requires, fully traceable and documented.</p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {standards.map((std, i) => (

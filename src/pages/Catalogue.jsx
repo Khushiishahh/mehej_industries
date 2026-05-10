@@ -10,9 +10,9 @@ const catalogueItems = [
   { id: 1, name: 'Bolt Catalogue',                slug: 'bolts',      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80', pages: 24, updated: 'Jan 2026', size: '2.4 MB', desc: 'Complete range of hex bolts, carriage bolts, anchor bolts, studs and more with full dimensional specifications.' },
   { id: 2, name: 'Nut Catalogue',                 slug: 'nuts',       image: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80', pages: 18, updated: 'Jan 2026', size: '1.8 MB', desc: 'Hex nuts, lock nuts, flange nuts, castle nuts and all variants with tolerance tables and material grades.' },
   { id: 3, name: 'Screw Catalogue',               slug: 'screws',     image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=600&q=80', pages: 28, updated: 'Feb 2026', size: '2.6 MB', desc: 'Pan, CSK, machine screws, socket screws, self-tapping and all screw types with full specifications.' },
-  { id: 4, name: 'Plain / Flat Washer Catalogue', slug: 'flat-plain', image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80', pages: 14, updated: 'Feb 2026', size: '1.2 MB', desc: 'Full range of plain and flat washers across all standards — DIN 125, DIN 9021, ISO 7089 and custom sizes.' },
-  { id: 5, name: 'Spring & Lock Washer Catalogue', slug: 'spring',    image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=600&q=80', pages: 16, updated: 'Mar 2026', size: '1.5 MB', desc: 'Spring washers (DIN 127), lock washers — internal and external tooth types for all vibration applications.' },
-  { id: 6, name: 'Special Washer Catalogue',      slug: 'custom',     image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80', pages: 20, updated: 'Mar 2026', size: '1.9 MB', desc: 'Wave, tab, serrated, Belleville, sealing and custom washers — all special types with specifications.' },
+  { id: 4, name: 'Plain / Flat Washer Catalogue', slug: 'flat-plain', image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80', pages: 14, updated: 'Feb 2026', size: '1.2 MB', desc: 'Full range of plain and flat washers across all standards (DIN 125, DIN 9021, ISO 7089 and custom sizes).' },
+  { id: 5, name: 'Spring & Lock Washer Catalogue', slug: 'spring',    image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=600&q=80', pages: 16, updated: 'Mar 2026', size: '1.5 MB', desc: 'Spring washers (DIN 127), lock washers including internal and external tooth types for all vibration applications.' },
+  { id: 6, name: 'Special Washer Catalogue',      slug: 'custom',     image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80', pages: 20, updated: 'Mar 2026', size: '1.9 MB', desc: 'Wave, tab, serrated, Belleville, sealing and custom washers with full specifications.' },
 ];
 
 const Catalogue = () => {
@@ -57,7 +57,7 @@ const Catalogue = () => {
       <div style={{ backgroundColor: 'rgba(249,115,22,0.06)', borderBottom: '1px solid rgba(249,115,22,0.18)' }} className="py-3">
         <div className="container-main flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-slate-600">
-            <span className="font-bold" style={{ color: ORANGE }}>How to request:</span> Click "Request Catalogue" and it opens a WhatsApp message — we'll send the PDF within 24 hours.
+            <span className="font-bold" style={{ color: ORANGE }}>How to request:</span> Click "Request Catalogue" and it opens a WhatsApp message. We&apos;ll send the PDF within 24 hours.
           </p>
           <a href={`mailto:${companyInfo.email}?subject=Catalogue Request`} className="text-sm font-semibold hover:underline" style={{ color: ORANGE }}>
             Or email us →
@@ -83,7 +83,7 @@ const Catalogue = () => {
               </div>
               <div>
                 <span className="text-xs font-bold uppercase tracking-widest" style={{ color: ORANGE }}>Ready to Download</span>
-                <h3 className="mt-0.5 text-xl font-extrabold text-slate-900">Master Catalogue — All Products</h3>
+                <h3 className="mt-0.5 text-xl font-extrabold text-slate-900">Master Catalogue: All Products</h3>
                 <p className="mt-1 text-sm text-slate-600">
                   Complete product listing with specifications, materials, sizes and standards for all Mehej Fasteners product lines.
                 </p>

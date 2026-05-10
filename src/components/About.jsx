@@ -7,11 +7,11 @@ import { companyInfo } from '../data/siteData';
 const VIDEO_ID = 'BkHrQxI2x0Q';
 
 const coreValues = [
-  "India's premier washer manufacturer — plain, spring, structural and custom types",
+  "India's premier washer manufacturer: plain, spring, structural and custom types",
   'Reliable supply of screws, nuts and bolts across India',
   'Competitive pricing backed by timely dispatch and responsive service',
   'Manufactured to ASTM, DIN, BS, GB, IS and all international standards',
-  'Carbon steel, stainless steel, brass, copper, aluminium — all materials available',
+  'Carbon steel, stainless steel, brass, copper, aluminium, all materials available',
 ];
 
 const VideoPlayer = () => {
@@ -71,24 +71,6 @@ const About = () => {
             className="relative order-last lg:order-first"
           >
             <VideoPlayer />
-
-            {/* Floating badge — orange */}
-            <div
-              className="absolute -bottom-5 -right-4 hidden rounded-2xl border border-white/15 px-6 py-4 text-white shadow-lg sm:block"
-              style={{ backgroundColor: '#7c2d12' }}
-            >
-              <p className="text-3xl font-extrabold text-white">50+</p>
-              <p className="mt-0.5 text-sm text-white/90">Years of Legacy</p>
-            </div>
-
-            {/* Est. badge */}
-            <div
-              className="absolute -top-4 -left-4 hidden rounded-xl bg-white px-5 py-3 shadow-md sm:block"
-              style={{ border: '1px solid rgba(249, 115, 22, 0.25)' }}
-            >
-              <p className="text-xs font-bold uppercase tracking-widest text-primary">Est.</p>
-              <p className="text-xl font-extrabold text-slate-900">1970</p>
-            </div>
           </motion.div>
 
           {/* CONTENT */}

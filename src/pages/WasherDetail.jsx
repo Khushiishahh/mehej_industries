@@ -3,8 +3,9 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowLeft, FiCheckCircle, FiMessageCircle, FiDownload } from 'react-icons/fi';
 import { washerTypes, companyInfo } from '../data/siteData';
+import DarkMeshBackground from '../components/DarkMeshBackground';
 
-const HERO_BG = '#0A1628';
+const HERO_BG_MESH = '#060E1A';
 const NAVY_BORDER = '#1E3A5F';
 
 const WasherDetail = () => {
@@ -30,13 +31,10 @@ const WasherDetail = () => {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* HERO — dark banner */}
-      <section className="relative overflow-hidden py-20 lg:py-28" style={{ backgroundColor: HERO_BG }}>
-        <div className="absolute inset-0 opacity-20">
-          <img src={washer.image} alt="" className="h-full w-full object-cover" />
-        </div>
-        <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${HERO_BG} 50%, transparent)` }} />
-        <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.35) 60%, transparent)' }} />
+      {/* HERO — navy + mesh (same as Knowledge Base / landing) */}
+      <section className="relative overflow-hidden py-20 lg:py-28" style={{ backgroundColor: HERO_BG_MESH }}>
+        <DarkMeshBackground />
+        <div className="pointer-events-none absolute top-0 left-0 right-0 z-[1] h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.35) 60%, transparent)' }} />
 
         <div className="relative z-10 container-main">
           <div className="mb-6 flex flex-wrap items-center gap-2 text-xs text-slate-400">
