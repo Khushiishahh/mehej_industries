@@ -25,6 +25,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [moreExpanded, setMoreExpanded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const navigate = useNavigate();
@@ -35,6 +36,10 @@ const Navbar = () => {
     window.addEventListener('scroll', fn, { passive: true });
     return () => window.removeEventListener('scroll', fn);
   }, []);
+
+  useEffect(() => {
+    if (!open) setMoreExpanded(false);
+  }, [open]);
 
   useEffect(() => {
     if (location.pathname !== '/') return;
@@ -126,7 +131,7 @@ const Navbar = () => {
                               <Link
                                 role="menuitem"
                                 to={item.href}
-                                className={`block whitespace-nowrap px-5 py-2.5 text-sm font-semibold transition ${
+                                className={`block whitespace-nowrap px-5 py-3 text-[0.9375rem] font-semibold leading-snug transition sm:text-base ${
                                   sub ? 'bg-slate-50 text-[#0A2540]' : 'text-slate-700 hover:bg-slate-50'
                                 }`}
                               >
@@ -205,24 +210,53 @@ const Navbar = () => {
                 {navLinks.map((link) => {
                   if (link.type === 'more') {
                     return (
-                      <div key={link.label} className="rounded-lg bg-slate-50/90 px-2 py-2">
-                        <p className="px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.12em] text-slate-400">
-                          {link.label}
-                        </p>
-                        {link.items.map((item) => (
-                          <Link
-                            key={item.href}
-                            to={item.href}
-                            onClick={() => setOpen(false)}
-                            className={`block rounded-lg px-3 py-2.5 text-sm font-semibold ${
-                              location.pathname === item.href
-                                ? 'bg-white text-[#0A2540] shadow-sm'
-                                : 'text-slate-700 hover:bg-white'
-                            }`}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
+                      <div key={link.label} className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+                        <button
+                          type="button"
+                          aria-expanded={moreExpanded}
+                          onClick={() => setMoreExpanded((v) => !v)}
+                          className={`flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left text-base font-semibold transition ${
+                            moreExpanded ? 'bg-slate-50 text-[#0A2540]' : 'text-slate-800'
+                          }`}
+                        >
+                          <span>{link.label}</span>
+                          <FiChevronDown
+                            size={20}
+                            className={`shrink-0 opacity-70 transition-transform duration-200 ${moreExpanded ? 'rotate-180' : ''}`}
+                            aria-hidden
+                          />
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {moreExpanded && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden border-t border-slate-100"
+                            >
+                              <div className="flex flex-col py-1">
+                                {link.items.map((item) => (
+                                  <Link
+                                    key={item.href}
+                                    to={item.href}
+                                    onClick={() => {
+                                      setOpen(false);
+                                      setMoreExpanded(false);
+                                    }}
+                                    className={`border-b border-slate-50 px-5 py-3.5 text-base font-semibold leading-snug last:border-b-0 ${
+                                      location.pathname === item.href
+                                        ? 'bg-slate-50 text-[#0A2540]'
+                                        : 'text-slate-700 active:bg-slate-50'
+                                    }`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     );
                   }

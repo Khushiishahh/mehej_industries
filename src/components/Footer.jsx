@@ -22,14 +22,6 @@ const pagesLinks = [
   { label: 'Knowledge Base', href: '/resources' },
 ];
 
-const MadeInIndia = () => (
-  <div
-    className="mt-5 inline-flex items-center gap-2 rounded-full border px-3 py-2"
-    style={{ borderColor: 'rgba(148,163,184,0.35)', backgroundColor: 'rgba(255,255,255,0.06)' }}
-  >
-  </div>
-);
-
 const Footer = () => {
   const navigate = useNavigate();
 
@@ -67,7 +59,6 @@ const Footer = () => {
               <FiMapPin size={15} style={{ color: ORANGE }} className="shrink-0" />
               Mumbai, India
             </div>
-            <MadeInIndia />
           </div>
 
           <div>

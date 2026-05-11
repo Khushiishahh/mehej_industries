@@ -524,12 +524,12 @@ export const industries = [
 export const whyChooseUs = [
   {
     title: 'Washer Specialists',
-    text: 'India\'s trusted washer manufacturer — plain, spring, lock, tab, serrated, wave and custom types in all materials.',
+    text: 'India\'s trusted washer manufacturer in plain, spring, lock, tab, serrated, wave and custom types in all materials.',
     icon: FiCheckCircle,
   },
   {
     title: 'Wide Product Range',
-    text: 'Complete fastener supply — washers manufactured in-house, and bolts, nuts, screws traded pan-India.',
+    text: 'Complete fastener supply of washers manufactured in-house, and bolts, nuts, screws traded pan-India.',
     icon: FiPackage,
   },
   {
@@ -539,12 +539,12 @@ export const whyChooseUs = [
   },
   {
     title: 'Export Ready',
-    text: 'Catering to global buyers with export-standard packaging, ASTM/DIN-compliant documentation, and timely international dispatch.',
+    text: 'Catering to global buyers with export standard packaging, ASTM/DIN-compliant documentation, and timely international dispatch.',
     icon: FiLayers,
   },
   {
     title: 'Custom Manufacturing',
-    text: 'Fully custom washer dimensions, tolerances up to ±0.01 mm — drawing-based manufacturing accepted.',
+    text: 'Fully custom washer dimensions, tolerances up to ±0.01 mm drawing-based manufacturing accepted.',
     icon: FiSettings,
   },
   {

@@ -101,7 +101,7 @@ const Hero = () => {
             <img
               src="/make-in-india-logo.jpg"
               alt="Make in India"
-              className="h-15 w-auto max-w-[min(200px,88vw)] object-contain opacity-95 sm:h-12.5"
+              className="h-15 w-auto max-w-[min(200px,88vw)] object-contain opacity-95 sm:h-12"
             />
           </motion.div>
 

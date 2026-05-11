@@ -76,8 +76,8 @@ const QualityPage = () => (
               onMouseLeave={e => e.currentTarget.style.borderColor = '#E2E8F0'}
             >
               <p className="text-3xl font-extrabold" style={{ color: ORANGE }}>{std.code}</p>
-              <p className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-slate-400">{std.full}</p>
-              <p className="mt-3 text-xs leading-5 text-slate-600">{std.desc}</p>
+              <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:text-xs">{std.full}</p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{std.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -104,10 +104,9 @@ const QualityPage = () => (
               onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(249,115,22,0.35)'}
               onMouseLeave={e => e.currentTarget.style.borderColor = '#E2E8F0'}
             >
-              <span className="absolute right-5 top-4 text-5xl font-black" style={{ color: 'rgba(249,115,22,0.08)' }}>{s.step}</span>
               <FiShield size={28} style={{ color: ORANGE }} />
-              <h3 className="mt-4 font-extrabold text-slate-900">{s.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">{s.desc}</p>
+              <h3 className="mt-4 text-lg font-extrabold text-slate-900">{s.title}</h3>
+              <p className="mt-2 text-base leading-relaxed text-slate-600">{s.desc}</p>
             </motion.div>
           ))}
         </div>
