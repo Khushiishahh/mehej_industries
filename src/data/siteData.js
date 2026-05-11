@@ -39,7 +39,7 @@ export const companyInfo = {
   phone: '9819933344',
   founded: '1970',
   location: 'Mumbai, India',
-  about: `MEHEJ INDUSTRIES traces its roots back to 1970, when it was originally established as Vijay Hardware Stores by Mr. Mahipatbhai Shah in Mumbai. The legacy was further expanded and modernized by Mr. Mehul Shah, and today the company proudly continues into the third generation under the leadership of Mr. Hem Shah and Mr. Jay Shah.`,
+  about: `MEHEJ INDUSTRIES traces its roots back to 1970, when it was originally established as Vijay Hardware Stores by Mr. Mahipatbhai Shah in Mumbai. In 1999, Mr. Mehul Shah took over and expanded the business as Mehej Fasteners. The company scaled its global footprint in 2023, and since 2025 the third generation—Mr. Hem Shah and Mr. Jay Shah—leads operations with the same commitment to quality and precision.`,
   description: `We specialize in the manufacturing, supply, and export of industrial fasteners including washers, nuts, bolts, screws, and customized fastening solutions. Our products are widely known for their durability, precision, and reliability across industries such as construction, automotive, infrastructure, oil & gas, and engineering.`,
 };
 
@@ -247,7 +247,7 @@ export const washerTypes = [
     name: 'Custom / Special Washers',
     badge: 'Custom Made',
     overview:
-      'Custom and special purpose washers including sealing washers, Belleville disc springs, thrust washers, shim washers, and insulating washers — manufactured to exact specifications.',
+      'Custom and special purpose washers including sealing washers, Belleville disc springs, thrust washers, shim washers, and insulating washers, manufactured to exact specifications.',
     image:'/assets/washer-custom.jpg',
       specs: [
         { label: 'Types', value: 'Sealing (EPDM, NBR), Shim, Insulating (Nylon, PTFE), Square, Shoulder' },
@@ -427,7 +427,7 @@ export const products = [
     id: 3,
     slug: 'screws',
     name: 'Screw',
-    shortDesc: 'Full screw range — machine screws, socket screws, self-tapping and more for all applications.',
+    shortDesc: 'Full screw range of machine screws, socket screws, self-tapping and more for all applications.',
     image: '/assets/product-types/screws/screw.jpg',
     icon: FiLayers,
     intro:

@@ -37,7 +37,7 @@ const Industries = () => (
         </Link>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {industries.map((industry, index) => {
           const data = industryData[industry] || { desc: '' };
           const slug = industrySlug(industry);
@@ -49,31 +49,36 @@ const Industries = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.04 }}
+              className="h-full"
             >
               <Link
                 to={`/industries#${slug}`}
                 aria-label={`View ${industry} on Industries page`}
-                className="group relative block overflow-hidden rounded-2xl outline-none ring-primary/0 transition-shadow focus-visible:ring-2 focus-visible:ring-primary"
-                style={{ height: '200px' }}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm outline-none ring-primary/0 transition-all hover:-translate-y-1 hover:border-primary/25 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary"
               >
-                <img
-                  src={src}
-                  alt=""
-                  role="presentation"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  onError={(e) => {
-                    e.target.src = FALLBACK_INDUSTRY_IMG;
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/05 transition-all duration-300 group-hover:from-primary/92 group-hover:via-primary/48 group-hover:to-transparent" />
-                <div className="pointer-events-none absolute inset-0 flex flex-col justify-end p-6">
-                  <p className="text-base font-extrabold leading-tight text-white">{industry}</p>
-                  <p className="mt-1.5 max-h-0 overflow-hidden text-sm leading-5 text-white/85 opacity-0 transition-all duration-300 group-hover:max-h-16 group-hover:opacity-100">
+                <div className="relative h-36 w-full shrink-0 overflow-hidden bg-slate-200 sm:h-40 md:h-44">
+                  <img
+                    src={src}
+                    alt=""
+                    role="presentation"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      e.target.src = FALLBACK_INDUSTRY_IMG;
+                    }}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-70" />
+                </div>
+                <div className="flex min-h-0 flex-1 flex-col px-4 py-3.5 sm:px-4 sm:py-4">
+                  <h3 className="text-center text-[0.9rem] font-extrabold leading-snug text-slate-900 transition-colors group-hover:text-primary sm:text-[0.97rem] [text-wrap:balance]">
+                    {industry}
+                  </h3>
+                  <p className="mt-2 flex-1 text-center text-[12px] leading-snug text-slate-600 [text-wrap:pretty] line-clamp-3 sm:text-sm sm:leading-relaxed md:line-clamp-4">
                     {data.desc}
                   </p>
-                  <p className="mt-3 text-sm font-bold uppercase tracking-wider text-white/95 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    View details <FiArrowRight className="inline align-text-bottom" size={13} aria-hidden />
-                  </p>
+                  <div className="mt-3 flex items-center justify-center gap-1.5 border-t border-slate-100 pt-3 text-xs font-bold uppercase tracking-wide text-slate-500 transition-colors group-hover:text-primary">
+                    <span>View sector</span>
+                    <FiArrowRight size={13} aria-hidden />
+                  </div>
                 </div>
               </Link>
             </motion.div>

@@ -43,10 +43,10 @@ const QualityPage = () => (
       <div className="relative z-10 container-main">
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <span className="section-label !mb-4 !inline-block !border-primary/35 !bg-primary/15 !text-primary">Quality Assurance</span>
-          <h1 className="mt-2 max-w-2xl text-4xl font-extrabold tracking-tight text-white lg:text-5xl">
+          <h1 className="mt-2 max-w-2xl text-[1.65rem] font-extrabold leading-snug tracking-tight text-white min-[380px]:text-3xl sm:text-4xl lg:text-5xl">
             International Standards. Uncompromising Quality.
           </h1>
-          <p className="mt-4 max-w-xl text-base leading-8 text-slate-300 lg:text-lg">
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-300 min-[380px]:text-base min-[380px]:leading-8 lg:text-lg">
             Every Mehej Fasteners product is manufactured and inspected to meet the most rigorous international
             standards across all grades and materials.
           </p>
@@ -57,12 +57,12 @@ const QualityPage = () => (
     {/* STANDARDS — light gray */}
     <section className="section-space" style={{ backgroundColor: '#F8FAFC' }}>
       <div className="container-main">
-        <div className="mb-12 text-center">
+        <div className="mb-10 text-center px-0 sm:mb-12">
           <span className="section-label">Supported Standards</span>
-          <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">Products aligned to global standards.</h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-slate-600">We manufacture to whichever standard your application requires, fully traceable and documented.</p>
+          <h2 className="mx-auto max-w-4xl text-[1.5rem] font-extrabold leading-snug text-slate-900 min-[380px]:text-2xl sm:text-4xl">Products aligned to global standards.</h2>
+          <p className="mx-auto mt-3 max-w-xl px-1 text-sm leading-relaxed text-slate-600 min-[380px]:mt-4 min-[380px]:text-base sm:px-0">We manufacture to whichever standard your application requires, fully traceable and documented.</p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-4 min-[380px]:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {standards.map((std, i) => (
             <motion.div
               key={std.code}
@@ -70,13 +70,13 @@ const QualityPage = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.07 }}
-              className="overflow-hidden rounded-2xl bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-md"
+              className="overflow-hidden rounded-2xl bg-white px-5 py-5 transition-all hover:-translate-y-1 hover:shadow-md min-[380px]:p-6"
               style={{ border: '1px solid #E2E8F0' }}
               onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(249,115,22,0.35)'}
               onMouseLeave={e => e.currentTarget.style.borderColor = '#E2E8F0'}
             >
-              <p className="text-3xl font-extrabold" style={{ color: ORANGE }}>{std.code}</p>
-              <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:text-xs">{std.full}</p>
+              <p className="text-2xl font-extrabold min-[380px]:text-3xl" style={{ color: ORANGE }}>{std.code}</p>
+              <p className="mt-1 break-words text-[10px] font-semibold uppercase leading-snug tracking-[0.06em] text-slate-500 min-[380px]:text-[11px] sm:text-xs">{std.full}</p>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">{std.desc}</p>
             </motion.div>
           ))}
@@ -87,11 +87,11 @@ const QualityPage = () => (
     {/* QUALITY PROCESS — white */}
     <section className="section-space bg-white">
       <div className="container-main">
-        <div className="mb-12 text-center">
+        <div className="mb-10 px-1 text-center sm:mb-12 sm:px-0">
           <span className="section-label">Quality Process</span>
-          <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">Four-stage quality assurance.</h2>
+          <h2 className="text-[1.5rem] font-extrabold leading-snug text-slate-900 min-[380px]:text-2xl sm:text-4xl">Four-stage quality assurance.</h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-4">
           {qualitySteps.map((s, i) => (
             <motion.div
               key={s.step}
@@ -99,14 +99,14 @@ const QualityPage = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative rounded-2xl bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-md"
+              className="relative rounded-2xl bg-white px-5 py-5 transition-all hover:-translate-y-1 hover:shadow-md min-[380px]:p-6"
               style={{ border: '1px solid #E2E8F0' }}
               onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(249,115,22,0.35)'}
               onMouseLeave={e => e.currentTarget.style.borderColor = '#E2E8F0'}
             >
-              <FiShield size={28} style={{ color: ORANGE }} />
-              <h3 className="mt-4 text-lg font-extrabold text-slate-900">{s.title}</h3>
-              <p className="mt-2 text-base leading-relaxed text-slate-600">{s.desc}</p>
+              <FiShield size={28} style={{ color: ORANGE }} className="max-sm:scale-[0.92]" />
+              <h3 className="mt-3 text-base font-extrabold text-slate-900 min-[380px]:mt-4 min-[380px]:text-lg">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 min-[380px]:text-base">{s.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -116,44 +116,46 @@ const QualityPage = () => (
     {/* MATERIALS TABLE — light gray */}
     <section className="section-space" style={{ backgroundColor: '#F8FAFC' }}>
       <div className="container-main">
-        <div className="mb-12 text-center">
+        <div className="mb-10 px-1 text-center sm:mb-12 sm:px-0">
           <span className="section-label">Materials</span>
-          <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">Material grades for every environment.</h2>
+          <h2 className="text-[1.5rem] font-extrabold leading-snug text-slate-900 min-[380px]:text-2xl sm:text-4xl">Material grades for every environment.</h2>
         </div>
-        <div className="overflow-hidden rounded-2xl shadow-sm" style={{ border: '1px solid #E2E8F0' }}>
-          <table className="w-full">
-            <thead>
-              <tr style={{ backgroundColor: ORANGE }}>
-                <th className="p-4 text-left text-sm font-bold text-white">Material</th>
-                <th className="p-4 text-left text-sm font-bold text-white">Grade</th>
-                <th className="p-4 text-left text-sm font-bold text-white">Typical Use</th>
-              </tr>
-            </thead>
-            <tbody>
-              {materials.map((mat, i) => (
-                <tr key={mat.name} style={{ backgroundColor: i % 2 === 0 ? '#FFFFFF' : '#F8FAFC' }}>
-                  <td className="p-4 text-sm font-semibold text-slate-900">{mat.name}</td>
-                  <td className="p-4 text-sm text-slate-600">{mat.grade}</td>
-                  <td className="p-4 text-sm text-slate-600">{mat.use}</td>
+        <div className="-mx-1 overflow-x-auto rounded-2xl shadow-sm pb-px min-[380px]:-mx-0 sm:overflow-visible">
+          <div className="min-w-0 rounded-2xl ring-1 ring-slate-200" style={{ border: '1px solid #E2E8F0' }}>
+            <table className="w-full min-w-[560px] text-left lg:min-w-0">
+              <thead>
+                <tr style={{ backgroundColor: ORANGE }}>
+                  <th className="px-3 py-3 text-left text-xs font-bold text-white sm:px-4 sm:py-4 sm:text-sm">Material</th>
+                  <th className="px-3 py-3 text-left text-xs font-bold text-white sm:px-4 sm:py-4 sm:text-sm">Grade</th>
+                  <th className="px-3 py-3 text-left text-xs font-bold text-white sm:px-4 sm:py-4 sm:text-sm">Typical Use</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {materials.map((mat, i) => (
+                  <tr key={mat.name} style={{ backgroundColor: i % 2 === 0 ? '#FFFFFF' : '#F8FAFC' }}>
+                    <td className="whitespace-normal break-words px-3 py-3 text-xs font-semibold text-slate-900 sm:px-4 sm:py-4 sm:text-sm">{mat.name}</td>
+                    <td className="whitespace-normal break-words px-3 py-3 text-xs text-slate-600 sm:px-4 sm:py-4 sm:text-sm">{mat.grade}</td>
+                    <td className="whitespace-normal break-words px-3 py-3 text-xs text-slate-600 sm:px-4 sm:py-4 sm:text-sm">{mat.use}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
 
     {/* CTA — orange */}
-    <section className="py-20" style={{ backgroundColor: ORANGE }}>
-      <div className="container-main text-center">
-        <FiAward className="mx-auto mb-4 text-white" size={48} />
-        <h2 className="text-3xl font-extrabold text-white sm:text-4xl">Need certified products?</h2>
-        <p className="mt-3 text-lg text-white/85">Contact us for test certificates, material traceability, and compliance documentation.</p>
+    <section className="py-14 sm:py-20" style={{ backgroundColor: ORANGE }}>
+      <div className="container-main px-1 text-center sm:px-0">
+        <FiAward className="mx-auto mb-3 h-10 w-10 text-white sm:mb-4 sm:h-12 sm:w-12" strokeWidth={1.25} aria-hidden />
+        <h2 className="text-xl font-extrabold leading-snug text-white min-[380px]:text-2xl sm:text-4xl">Need certified products?</h2>
+        <p className="mx-auto mt-3 max-w-lg px-1 text-base leading-relaxed text-white/90 min-[380px]:text-lg sm:px-0">Contact us for test certificates, material traceability, and compliance documentation.</p>
         <a
           href={`https://wa.me/91${companyInfo.phone}`}
           target="_blank"
           rel="noreferrer"
-          className="mt-8 inline-flex items-center gap-2.5 rounded-lg px-8 py-4 text-sm font-bold uppercase tracking-wide"
+          className="mt-6 inline-flex max-w-[calc(100%-0.25rem)] items-center justify-center gap-2.5 rounded-lg px-6 py-4 text-xs font-bold uppercase tracking-wide shadow-md sm:mt-8 sm:max-w-none sm:px-8 sm:text-sm"
           style={{ backgroundColor: '#0A1628', color: '#ffffff' }}
         >
           Request Certificates <FiArrowRight />

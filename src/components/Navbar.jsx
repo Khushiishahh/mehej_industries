@@ -8,7 +8,6 @@ import { companyInfo } from '../data/siteData';
 const morePageLinks = [
   { label: 'Company Story', href: '/about' },
   { label: 'Quality & Standards', href: '/quality' },
-  { label: 'Industries Served', href: '/industries' },
 ];
 
 const navLinks = [
@@ -68,7 +67,7 @@ const Navbar = () => {
       el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    if (typeof window !== 'undefined' && menuWasOpen && window.matchMedia('(max-width: 1023px)').matches) {
+    if (typeof window !== 'undefined' && menuWasOpen && window.matchMedia('(max-width: 1279px)').matches) {
       setTimeout(doScroll, 400);
       return;
     }
@@ -78,7 +77,8 @@ const Navbar = () => {
 
   const isHome = location.pathname === '/';
 
-  const linkBase = 'relative py-1 text-sm font-semibold tracking-wide transition-colors duration-200';
+  const linkBase =
+    'relative whitespace-nowrap py-1 text-[13px] font-semibold tracking-wide transition-colors duration-200 2xl:text-sm';
   const linkActive = 'text-[#0A2540] font-semibold';
 
   return (
@@ -104,8 +104,8 @@ const Navbar = () => {
             />
           </a>
 
-          {/* DESKTOP NAV */}
-          <nav className="hidden flex-1 items-center justify-center gap-5 xl:gap-6 lg:flex">
+          {/* DESKTOP NAV — xl+ avoids cramped / overlapping rows on laptops 1024–1279 */}
+          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-2 px-3 min-[1380px]:gap-4 2xl:gap-6 xl:flex">
             {navLinks.map((link) => {
               if (link.type === 'more') {
                 const childActive = link.items.some((i) => location.pathname === i.href);
@@ -180,15 +180,15 @@ const Navbar = () => {
           </nav>
 
           {/* DESKTOP CTA */}
-          <div className="hidden items-center gap-3 lg:flex min-w-fit">
-            <a href="#contact" onClick={(e) => handleAnchor(e, '#contact')} className="btn-primary px-5 py-2.5 text-sm">
+          <div className="hidden shrink-0 items-center gap-2 min-[1380px]:gap-3 xl:flex">
+            <a href="#contact" onClick={(e) => handleAnchor(e, '#contact')} className="btn-primary px-4 py-2.5 text-xs 2xl:px-5 2xl:text-sm">
               Get a Quote
             </a>
           </div>
 
           {/* MOBILE TOGGLE */}
           <button
-            className="ml-auto rounded-lg border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-50 lg:hidden"
+            className="ml-auto shrink-0 rounded-lg border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-50 xl:hidden"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -204,7 +204,7 @@ const Navbar = () => {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="overflow-hidden border-t border-slate-200 lg:hidden"
+              className="overflow-hidden border-t border-slate-200 xl:hidden"
             >
               <nav className="flex flex-col gap-1 bg-white px-1 py-4">
                 {navLinks.map((link) => {

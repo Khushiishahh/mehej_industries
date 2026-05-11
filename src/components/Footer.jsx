@@ -18,7 +18,6 @@ const pagesLinks = [
   { label: 'Company Story', href: '/about' },
   { label: 'Product Catalogues', href: '/catalogue' },
   { label: 'Quality & Standards', href: '/quality' },
-  { label: 'Industries Served', href: '/industries' },
   { label: 'Knowledge Base', href: '/resources' },
 ];
 
