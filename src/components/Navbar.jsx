@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi';
+import { FiChevronDown } from 'react-icons/fi';
 import { AnimatePresence, motion } from 'framer-motion';
 import { companyInfo } from '../data/siteData';
+
+const morePageLinks = [
+  { label: 'Company Story', href: '/about' },
+  { label: 'Quality & Standards', href: '/quality' },
+  { label: 'Industries Served', href: '/industries' },
+];
+
 const navLinks = [
   { label: 'Home',       type: 'anchor', anchor: '#home' },
   { label: 'About',      type: 'anchor', anchor: '#about' },
@@ -10,6 +18,7 @@ const navLinks = [
   { label: 'Industries', type: 'anchor', anchor: '#industries' },
   { label: 'Catalogue',  type: 'route',  href: '/catalogue' },
   { label: 'Resources',  type: 'route',  href: '/resources' },
+  { label: 'More pages', type: 'more',   items: morePageLinks },
   { label: 'Why Us',     type: 'anchor', anchor: '#why-us' },
   { label: 'Contact',    type: 'anchor', anchor: '#contact' },
 ];
@@ -91,8 +100,46 @@ const Navbar = () => {
           </a>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden flex-1 items-center justify-center gap-7 lg:flex">
+          <nav className="hidden flex-1 items-center justify-center gap-5 xl:gap-6 lg:flex">
             {navLinks.map((link) => {
+              if (link.type === 'more') {
+                const childActive = link.items.some((i) => location.pathname === i.href);
+                return (
+                  <div key={link.label} className="group relative shrink-0">
+                    <button
+                      type="button"
+                      aria-haspopup="menu"
+                      aria-expanded={childActive ? 'true' : 'false'}
+                      className={`${linkBase} flex items-center gap-0.5 ${
+                        childActive ? linkActive : 'cursor-pointer border-none bg-transparent text-slate-600 hover:text-[#0A2540]'
+                      }`}
+                    >
+                      More pages
+                      <FiChevronDown size={14} className="opacity-65 transition-transform duration-200 group-hover:-rotate-180" aria-hidden />
+                    </button>
+                    <div className="invisible absolute left-1/2 top-full z-[70] mt-px w-max min-w-[15rem] -translate-x-1/2 rounded-xl border border-slate-200 bg-white py-2 opacity-0 shadow-xl shadow-slate-900/10 ring-1 ring-black/5 transition duration-150 group-hover:visible group-hover:opacity-100">
+                      <ul role="menu" className="py-1">
+                        {link.items.map((item) => {
+                          const sub = location.pathname === item.href;
+                          return (
+                            <li key={item.href}>
+                              <Link
+                                role="menuitem"
+                                to={item.href}
+                                className={`block whitespace-nowrap px-5 py-2.5 text-sm font-semibold transition ${
+                                  sub ? 'bg-slate-50 text-[#0A2540]' : 'text-slate-700 hover:bg-slate-50'
+                                }`}
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </div>
+                );
+              }
               if (link.type === 'route') {
                 const isActive = location.pathname === link.href;
                 return (
@@ -154,8 +201,31 @@ const Navbar = () => {
               transition={{ duration: 0.25 }}
               className="overflow-hidden border-t border-slate-200 lg:hidden"
             >
-              <nav className="flex flex-col gap-1 bg-white py-4">
+              <nav className="flex flex-col gap-1 bg-white px-1 py-4">
                 {navLinks.map((link) => {
+                  if (link.type === 'more') {
+                    return (
+                      <div key={link.label} className="rounded-lg bg-slate-50/90 px-2 py-2">
+                        <p className="px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.12em] text-slate-400">
+                          {link.label}
+                        </p>
+                        {link.items.map((item) => (
+                          <Link
+                            key={item.href}
+                            to={item.href}
+                            onClick={() => setOpen(false)}
+                            className={`block rounded-lg px-3 py-2.5 text-sm font-semibold ${
+                              location.pathname === item.href
+                                ? 'bg-white text-[#0A2540] shadow-sm'
+                                : 'text-slate-700 hover:bg-white'
+                            }`}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    );
+                  }
                   if (link.type === 'route') {
                     return (
                       <Link

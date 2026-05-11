@@ -13,7 +13,7 @@ const Catalogue = () => (
   <div className="min-h-screen bg-white">
 
     <section
-      className="relative overflow-hidden py-20 lg:py-28"
+      className="relative overflow-hidden py-10 lg:py-14"
       style={{ backgroundColor: HERO_BG_MESH }}
     >
       <DarkMeshBackground />

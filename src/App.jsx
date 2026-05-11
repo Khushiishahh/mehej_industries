@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiArrowUp } from 'react-icons/fi';
 import Navbar from './components/Navbar';
@@ -12,6 +12,15 @@ import QualityPage from './pages/QualityPage';
 import IndustriesPage from './pages/IndustriesPage';
 import WasherDetail from './pages/WasherDetail';
 import ResourcesPage from './pages/ResourcesPage';
+
+/** Scroll window to top on every client-side navigation (fixes footer “More pages”, etc.). */
+const ScrollOnRouteChange = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+  return null;
+};
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
@@ -44,6 +53,7 @@ const ScrollToTop = () => {
 function App() {
   return (
     <div className="overflow-x-hidden">
+      <ScrollOnRouteChange />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

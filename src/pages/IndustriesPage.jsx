@@ -4,8 +4,9 @@ import { useLocation } from 'react-router-dom';
 import { FiArrowRight, FiCheckCircle } from 'react-icons/fi';
 import { companyInfo } from '../data/siteData';
 import { industrySlug, industryAssetImage } from '../utils/industrySlug';
+import DarkMeshBackground from '../components/DarkMeshBackground';
 
-const HERO_BG = '#0A1628';
+const HERO_BG_MESH = '#060E1A';
 const ORANGE  = '#F97316';
 
 const industryDetails = [
@@ -41,20 +42,20 @@ const IndustriesPage = () => {
   return (
   <div className="min-h-screen bg-white">
 
-    {/* HERO — dark banner */}
-    <section className="relative overflow-hidden py-24 lg:py-32" style={{ backgroundColor: HERO_BG }}>
-      <div className="absolute inset-0 opacity-20">
-        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=80" alt="" className="h-full w-full object-cover" />
-      </div>
-      <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${HERO_BG} 40%, transparent)` }} />
-      <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: `linear-gradient(90deg, transparent, ${ORANGE} 40%, ${ORANGE} 60%, transparent)` }} />
+    {/* HERO — mesh + compact band */}
+    <section className="relative overflow-hidden py-10 lg:py-14" style={{ backgroundColor: HERO_BG_MESH }}>
+      <DarkMeshBackground />
+      <div
+        className="pointer-events-none absolute top-0 left-0 right-0 z-[1] h-[3px]"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.35) 60%, transparent)' }}
+      />
       <div className="relative z-10 container-main">
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <span className="section-label">Industries We Serve</span>
-          <h1 className="mt-2 max-w-2xl text-4xl font-extrabold text-white lg:text-5xl">
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <span className="section-label !mb-4 !inline-block !border-primary/35 !bg-primary/15 !text-primary">Industries We Serve</span>
+          <h1 className="mt-2 max-w-2xl text-4xl font-extrabold tracking-tight text-white lg:text-5xl">
             Powering 12 critical industrial sectors.
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
+          <p className="mt-4 max-w-xl text-base leading-8 text-slate-300 lg:text-lg">
             From construction to aerospace, our fasteners are trusted across industries where precision, reliability, and performance are non-negotiable.
           </p>
         </motion.div>

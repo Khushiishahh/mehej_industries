@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { FiCheckCircle, FiArrowRight } from 'react-icons/fi';
 import { companyInfo } from '../data/siteData';
+import DarkMeshBackground from '../components/DarkMeshBackground';
 
-const HERO_BG = '#0A1628';
+const HERO_BG_MESH = '#060E1A';
 const ORANGE  = '#F97316';
 
 const timeline = [
@@ -25,25 +26,20 @@ const coreValues = [
 const AboutPage = () => (
   <div className="min-h-screen bg-white">
 
-    {/* HERO — dark banner */}
-    <section className="relative overflow-hidden py-24 lg:py-32" style={{ backgroundColor: HERO_BG }}>
-      <div className="absolute inset-0 opacity-20">
-        <img
-          src="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1600&q=80"
-          alt=""
-          className="h-full w-full object-cover"
-        />
-      </div>
-      <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${HERO_BG} 40%, transparent)` }} />
-      <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: `linear-gradient(90deg, transparent, ${ORANGE} 40%, ${ORANGE} 60%, transparent)` }} />
-
+    {/* HERO — same mesh + compact band as Catalogue / Resources */}
+    <section className="relative overflow-hidden py-10 lg:py-14" style={{ backgroundColor: HERO_BG_MESH }}>
+      <DarkMeshBackground />
+      <div
+        className="pointer-events-none absolute top-0 left-0 right-0 z-[1] h-[3px]"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.35) 60%, transparent)' }}
+      />
       <div className="relative z-10 container-main">
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <span className="section-label">Our Story</span>
-          <h1 className="mt-2 max-w-2xl text-4xl font-extrabold text-white lg:text-6xl">
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <span className="section-label !mb-4 !inline-block !border-primary/35 !bg-primary/15 !text-primary">Our Story</span>
+          <h1 className="mt-2 max-w-2xl text-4xl font-extrabold tracking-tight text-white lg:text-5xl">
             50+ Years of Fastening Excellence.
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
+          <p className="mt-4 max-w-xl text-base leading-8 text-slate-300 lg:text-lg">
             From a small hardware store in Mumbai to a respected industrial fastener manufacturer and exporter.
             The Mehej Fasteners story spans three generations and five decades.
           </p>
@@ -85,11 +81,11 @@ const AboutPage = () => (
     </section>
 
     {/* TIMELINE — light gray */}
-    <section className="section-space" style={{ backgroundColor: '#F8FAFC' }}>
+    <section className="py-12 lg:py-16" style={{ backgroundColor: '#F8FAFC' }}>
       <div className="container-main">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <div className="mx-auto mb-8 max-w-2xl text-center">
           <span className="section-label">Our Journey</span>
-          <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">A legacy built over five decades.</h2>
+          <h2 className="mt-4 text-2xl font-extrabold text-slate-900 sm:text-3xl">A legacy built over five decades.</h2>
         </div>
 
         <div className="relative mx-auto max-w-3xl">
@@ -104,17 +100,17 @@ const AboutPage = () => (
               initial={{ opacity: 0, x: i % 2 === 0 ? -32 : 32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: i * 0.1 }}
-              className={`relative mb-10 pl-16 lg:pl-0 ${i % 2 === 0 ? 'lg:pr-[calc(50%+2rem)]' : 'lg:pl-[calc(50%+2rem)]'}`}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+              className={`relative mb-5 pl-14 last:mb-0 lg:pl-0 lg:last:mb-0 ${i % 2 === 0 ? 'lg:mb-5 lg:pr-[calc(50%+1.75rem)]' : 'lg:pl-[calc(50%+1.75rem)]'}`}
             >
               <div
-                className="absolute left-4 top-3 h-4 w-4 rounded-full border-4 lg:left-1/2 lg:-translate-x-1/2"
+                className="absolute left-4 top-2.5 h-3.5 w-3.5 rounded-full border-[3px] lg:left-1/2 lg:top-2 lg:-translate-x-1/2"
                 style={{ borderColor: ORANGE, backgroundColor: '#F8FAFC' }}
               />
-              <div className="rounded-2xl bg-white p-6 shadow-sm" style={{ border: '1px solid #E2E8F0' }}>
-                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: ORANGE }}>{item.year}</span>
-                <h3 className="mt-1 text-lg font-extrabold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+              <div className="rounded-xl bg-white px-4 py-3.5 shadow-sm sm:px-5" style={{ border: '1px solid #E2E8F0' }}>
+                <span className="text-[10px] font-bold uppercase tracking-widest sm:text-xs" style={{ color: ORANGE }}>{item.year}</span>
+                <h3 className="mt-0.5 text-base font-extrabold text-slate-900 sm:text-lg">{item.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{item.desc}</p>
               </div>
             </motion.div>
           ))}

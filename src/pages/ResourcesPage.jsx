@@ -574,7 +574,7 @@ const ResourcesPage = () => {
 
       {/* HERO — same deep navy as landing */}
       <section
-        className="relative overflow-hidden py-20 lg:py-28"
+        className="relative overflow-hidden py-10 lg:py-14"
         style={{ backgroundColor: '#060E1A' }}
       >
         <DarkMeshBackground />
