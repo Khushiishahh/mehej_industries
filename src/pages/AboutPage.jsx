@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FiCheckCircle, FiArrowRight } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import { companyInfo } from '../data/siteData';
 import DarkMeshBackground from '../components/DarkMeshBackground';
 
@@ -9,8 +10,8 @@ const ORANGE  = '#F97316';
 const timeline = [
   { year: '1970', title: 'Foundation', desc: 'Established as Vijay Hardware Stores by Mr. Mahipatbhai Shah in Mumbai, beginning a legacy of quality hardware supply.' },
   { year: '1999', title: 'Second generation', desc: 'Mr. Mehul Shah took over the business—rebranding as Mehej Fasteners, expanding the product portfolio and modernizing operations.' },
-  { year: '2023', title: 'Global footprint', desc: 'Scaled internationally with export-grade fasteners aligned to ASTM, DIN, BS, GB, IS and other global standards, plus custom capabilities for demanding sectors.' },
-  { year: '2025', title: 'Third generation', desc: 'Mr. Hem Shah and Mr. Jay Shah took over leadership, stewarding quality, precision, and customer-first service into the company’s next chapter.' },
+  { year: '2023', title: 'Global footprint', desc: 'Scaled globally with export-grade fasteners aligned to ASTM, DIN, BS, GB, IS and other global standards, plus custom capabilities for demanding sectors.' },
+  { year: '2025', title: 'Third generation', desc: 'Mr. Hem Shah and Mr. Jay Shah took over leadership, stewarding quality, precision, and customer-first service into the company\'s next chapter.' },
 ];
 
 const coreValues = [
@@ -22,7 +23,21 @@ const coreValues = [
   { title: 'Integrity',               desc: 'Transparent pricing and honest business practices, generation after generation.' },
 ];
 
-const AboutPage = () => (
+const AboutPage = () => {
+  const navigate = useNavigate();
+
+  const goToContact = (e) => {
+    e.preventDefault();
+    const el = () => document.querySelector('#contact') ?? document.getElementById('contact');
+    if (window.location.pathname !== '/') {
+      navigate('/');
+      window.setTimeout(() => el()?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+    } else {
+      el()?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  return (
   <div className="min-h-screen bg-white">
 
     {/* HERO — same mesh + compact band as Catalogue / Resources */}
@@ -57,10 +72,12 @@ const AboutPage = () => (
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-slate-600 min-[380px]:mt-5 min-[380px]:text-base min-[380px]:leading-8">{companyInfo.about}</p>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 min-[380px]:mt-4 min-[380px]:text-base min-[380px]:leading-8">{companyInfo.description}</p>
-            <a href="/catalogue" className="btn-primary mt-6 inline-flex min-[380px]:mt-8">Get in Touch <FiArrowRight /></a>
+            <a href="/#contact" className="btn-primary mt-6 inline-flex min-[380px]:mt-8" onClick={goToContact}>
+              Get in Touch <FiArrowRight />
+            </a>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }} className="min-w-0">
-            <div className="overflow-hidden rounded-2xl bg-slate-100 shadow-lg ring-1 ring-slate-200/90">
+            <div className="overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="/assets/founders/mehej-founders.jpg"
                 alt={`${companyInfo.name} — leadership and founders`}
@@ -79,7 +96,7 @@ const AboutPage = () => (
       <div className="container-main">
         <div className="mx-auto mb-8 max-w-2xl px-1 text-center sm:px-0">
           <span className="section-label">Our Journey</span>
-          <h2 className="mt-4 text-[1.375rem] font-extrabold leading-snug text-slate-900 min-[380px]:text-2xl sm:text-3xl">A legacy built over five decades.</h2>
+          <h2 className="mt-4 text-[1.375rem] font-extrabold leading-snug text-slate-900 min-[380px]:text-2xl sm:text-3xl">A legacy built over decades of experience.</h2>
         </div>
 
         <div className="relative mx-auto max-w-3xl">
@@ -160,6 +177,7 @@ const AboutPage = () => (
       </div>
     </section>
   </div>
-);
+  );
+};
 
 export default AboutPage;
