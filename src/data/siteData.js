@@ -33,14 +33,14 @@ const mergeTypeImages = (imported, folder, count) => {
 };
 
 export const companyInfo = {
-  name: 'MEHEJ FASTENERS',
+  name: 'MEHEJ INDUSTRIES',
   tagline: 'Fastening the Future',
-  email: 'mehejfastener@gmail.com',
-  phone: '8169125985',
+  email: 'info@mehejindustries.com',
+  phone: '9819933344',
   founded: '1970',
   location: 'Mumbai, India',
-  about: `Mehej Fasteners traces its roots back to 1970, when it was originally established as Vijay Hardware Stores by Mr. Mahipatbhai Shah in Mumbai. The legacy was strengthened by Mr. Mehul Shah, who founded Mehej Fasteners to expand and modernize the business, and today the company proudly continues into the third generation under the leadership of Mr. Hem Shah.`,
-  description: `Mehej Fasteners specialises in the manufacturing and pan-India supply of precision washers across all types and materials. We also trade in all types of industrial fasteners — bolts, screws, nuts, and more — serving diverse industrial requirements with a strong focus on quality, precision, reliability, competitive pricing, and timely delivery.`,
+  about: `MEHEJ INDUSTRIES traces its roots back to 1970, when it was originally established as Vijay Hardware Stores by Mr. Mahipatbhai Shah in Mumbai. The legacy was further expanded and modernized by Mr. Mehul Shah, and today the company proudly continues into the third generation under the leadership of Mr. Hem Shah and Mr. Jay Shah.`,
+  description: `We specialize in the manufacturing, supply, and export of industrial fasteners including washers, nuts, bolts, screws, and customized fastening solutions. Our products are widely known for their durability, precision, and reliability across industries such as construction, automotive, infrastructure, oil & gas, and engineering.`,
 };
 
 export const stats = [
@@ -62,20 +62,20 @@ export const washerTypes = [
     badge: 'Most Popular',
     overview:
       'Flat washers are used for load distribution and surface protection in fastening assemblies. They spread the load of a fastener over a larger area, preventing damage to surfaces.',
-    image: 'public/assets/washer-plain.jpg',
+    image: '/assets/washer-plain.jpg',
       specs: [
         { label: 'Type', value: 'Flat / Plain Washer' },
         { label: 'Standards', value: 'ISO 7089, ISO 7090, DIN 125, ANSI B18.22.1' },
         { label: 'Inner Diameter (ID)', value: 'As per bolt size (M3 – M100)' },
         { label: 'Outer Diameter (OD)', value: 'Standard or wide series' },
         { label: 'Thickness', value: '0.3 mm – 10 mm' },
-        { label: 'Materials', value: 'Stainless Steel (SS304, SS316), Carbon Steel, Brass, Nylon' },
+        { label: 'Materials', value: 'Stainless Steel (304, 316), Carbon Steel, Brass, Nylon' },
         { label: 'Finish', value: 'Zinc plated, hot-dip galvanized, black oxide, plain' },
         { label: 'Hardness', value: '100 – 300 HV' },
       ],
     features: [
       'High load-bearing capacity',
-      'Corrosion resistance (SS and galvanized variants)',
+      'Corrosion resistance (stainless and galvanized variants)',
       'Available in wide size range',
       'Custom OD and thickness available',
     ],
@@ -130,7 +130,7 @@ export const washerTypes = [
     image:'/assets/washer-spring.jpg',
       specs: [
         { label: 'Type', value: 'Split / Helical Spring Washer' },
-        { label: 'Standards', value: 'DIN 127, DIN 7980' },
+        { label: 'Standards', value: 'DIN 127, DIN 7980, ASME B18.21.1' },
         { label: 'Size Range', value: 'M3 – M64' },
         { label: 'Materials', value: 'Spring Steel, Stainless Steel' },
         { label: 'Hardness', value: '420 – 510 HV' },
@@ -217,8 +217,7 @@ export const washerTypes = [
     badge: 'Anti-Slip',
     overview:
       'Serrated washers feature radial teeth on the surface that bite into mating material to prevent loosening due to vibration. Available in internal, external, and bi-directional types.',
-    image:
-      'https://images.unsplash.com/photo-1581092919532-7146ff1a590d?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/washer-serrated.jpg',
       specs: [
         { label: 'Type', value: 'Internal / External / Bi-directional serrated' },
         { label: 'Standards', value: 'DIN 6798, DIN 6908' },
@@ -286,8 +285,7 @@ export const products = [
     slug: 'nuts',
     name: 'Nut',
     shortDesc: 'Complete nut range in all grades and materials for pairing with bolts in industrial assemblies.',
-    image:
-      'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/product-types/nuts/nut.jpg',
     icon: FiSettings,
     intro: 'Threaded fastening solutions designed for reliable pairing with bolts in all assemblies.',
     types: [
@@ -356,8 +354,7 @@ export const products = [
     slug: 'bolts',
     name: 'Bolt',
     shortDesc: 'High-strength structural and mechanical bolts for demanding industrial assemblies.',
-    image:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/product-types/bolts/bolt.jpg',
     icon: FiBox,
     intro:
       'Industrial bolts for secure assembly across structural, mechanical, and heavy-duty applications.',
@@ -431,8 +428,7 @@ export const products = [
     slug: 'screws',
     name: 'Screw',
     shortDesc: 'Full screw range — machine screws, socket screws, self-tapping and more for all applications.',
-    image:
-      '/assets/screw.jpg',
+    image: '/assets/product-types/screws/screw.jpg',
     icon: FiLayers,
     intro:
       'Comprehensive screw range covering machine screws, socket head screws, and self-tapping screws.',

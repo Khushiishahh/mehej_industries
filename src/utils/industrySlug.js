@@ -6,3 +6,8 @@ export function industrySlug(name) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
+
+/** Local hero image under public/assets/industries/{slug}-industry.png */
+export function industryAssetImage(name) {
+  return `/assets/industries/${industrySlug(name)}-industry.png`;
+}

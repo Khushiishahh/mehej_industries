@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi';
 import { AnimatePresence, motion } from 'framer-motion';
-
+import { companyInfo } from '../data/siteData';
 const navLinks = [
   { label: 'Home',       type: 'anchor', anchor: '#home' },
   { label: 'About',      type: 'anchor', anchor: '#about' },
@@ -13,9 +13,6 @@ const navLinks = [
   { label: 'Why Us',     type: 'anchor', anchor: '#why-us' },
   { label: 'Contact',    type: 'anchor', anchor: '#contact' },
 ];
-
-/** Deep navy matches landing hero — logo / wordmark stays readable on white bar */
-const BRAND_NAVY = '#0A2540';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -81,20 +78,16 @@ const Navbar = () => {
         <div className={`flex items-center transition-all duration-300 ${scrolled ? 'py-2' : 'py-3'}`}>
 
           {/* LOGO */}
-          <a href="#home" onClick={(e) => handleAnchor(e, '#home')} className="flex items-center gap-3 min-w-fit">
+          <a
+            href="#home"
+            onClick={(e) => handleAnchor(e, '#home')}
+            className="flex min-w-0 shrink-0 items-center"
+          >
             <img
               src="/logo.png"
-              alt="MEHEJ INDUSTRIES"
-              className={`w-auto object-contain transition-all duration-300 ${scrolled ? 'h-12' : 'h-14'}`}
+              alt={companyInfo.name}
+              className={`w-auto object-contain object-left transition-all duration-300 ${scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'}`}
             />
-            <div>
-              <p className="text-base font-extrabold leading-tight tracking-wide" style={{ color: BRAND_NAVY }}>
-                MEHEJ INDUSTRIES
-              </p>
-              <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: '#37506D' }}>
-                Fastening the Future
-              </p>
-            </div>
           </a>
 
           {/* DESKTOP NAV */}

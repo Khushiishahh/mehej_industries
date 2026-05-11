@@ -16,7 +16,7 @@ const standards = [
 const materials = [
   { name: 'Carbon Steel',    grade: 'Grade 4.6, 8.8, 10.9, 12.9', use: 'General construction & heavy machinery' },
   { name: 'Alloy Steel',     grade: 'Grade 10.9, 12.9',            use: 'High-strength structural and aerospace applications' },
-  { name: 'Stainless Steel', grade: 'SS 304, 316, 316L',           use: 'Marine, food processing & corrosive environments' },
+  { name: 'Stainless Steel', grade: '304, 316, 316L',             use: 'Marine, food processing & corrosive environments' },
   { name: 'Brass',           grade: 'CuZn40',                      use: 'Electrical, plumbing & decorative applications' },
   { name: 'Copper',          grade: 'C11000',                      use: 'Electrical conductivity and heat transfer applications' },
   { name: 'Aluminium',       grade: 'A2-70, A4-80',                use: 'Lightweight structures and aerospace components' },

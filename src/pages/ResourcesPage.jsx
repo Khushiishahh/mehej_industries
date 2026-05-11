@@ -26,28 +26,6 @@ const Tag = ({ children }) => (
   </span>
 );
 
-const BulletList = ({ items }) => (
-  <ul className="mt-3 space-y-2">
-    {items.map((item, i) => (
-      <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
-        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0A2540]" />
-        {item}
-      </li>
-    ))}
-  </ul>
-);
-
-const CheckList = ({ items }) => (
-  <ul className="mt-3 space-y-2">
-    {items.map((item, i) => (
-      <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
-        <FiCheckCircle className="mt-0.5 shrink-0 text-[#0A2540]" size={14} />
-        {item}
-      </li>
-    ))}
-  </ul>
-);
-
 /* ── Accordion ───────────────────────────────── */
 const Accordion = ({ title, tag, children, isOpen, onToggle }) => (
   <div
@@ -165,8 +143,9 @@ const WasherGuidesPanel = () => {
               <tbody>
                 {[
                   { mat: 'Carbon Steel (Zinc Plated)', best: 'Indoor, general purpose assemblies', avoid: 'Outdoor, wet or corrosive exposure' },
-                  { mat: 'Stainless Steel SS304', best: 'Outdoor, fresh water, food grade', avoid: 'Marine / high chloride environments' },
-                  { mat: 'Stainless Steel SS316', best: 'Marine, coastal, chemical environments', avoid: 'High-temperature (>500°C)' },
+                  { mat: 'Stainless Steel 202', best: 'Cost-sensitive indoor use, mild corrosion exposure', avoid: 'Marine, aggressive chlorides, long-term coastal' },
+                  { mat: 'Stainless Steel 304', best: 'Outdoor, fresh water, food grade', avoid: 'Marine / high chloride environments' },
+                  { mat: 'Stainless Steel 316', best: 'Marine, coastal, chemical environments', avoid: 'High-temperature (>500°C)' },
                   { mat: 'Brass', best: 'Electrical, plumbing, decorative', avoid: 'High-load structural joints' },
                   { mat: 'Copper', best: 'Electrical bonding, heat transfer', avoid: 'Acidic or alkaline environments' },
                   { mat: 'Aluminium', best: 'Lightweight / aerospace structures', avoid: 'High clamping force requirements' },
@@ -176,43 +155,6 @@ const WasherGuidesPanel = () => {
                     <td className="p-3 text-xs font-semibold text-slate-900">{r.mat}</td>
                     <td className="p-3 text-xs text-slate-600">{r.best}</td>
                     <td className="p-3 text-xs text-slate-600 hidden sm:table-cell">{r.avoid}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Accordion>
-
-        <Accordion title="Standard Washer Size Chart (Metric)" tag="Size Guide" isOpen={open === 3} onToggle={() => toggle(3)}>
-          <p className="mb-4 text-sm text-slate-600">
-            Inner diameter (ID) of the washer should be slightly larger than the bolt shank. Use DIN 9021 large OD washers for soft materials.
-          </p>
-          <div className="overflow-hidden rounded-xl" style={{ border: '1px solid #E2E8F0' }}>
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-[#0A2540] text-white">
-                  <th className="p-3 text-center text-xs font-bold">Bolt Size</th>
-                  <th className="p-3 text-center text-xs font-bold">Washer ID</th>
-                  <th className="p-3 text-center text-xs font-bold">OD (DIN 125)</th>
-                  <th className="p-3 text-center text-xs font-bold">OD (DIN 9021)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  ['M4', '4.3 mm', '9 mm', '12 mm'],
-                  ['M5', '5.3 mm', '10 mm', '15 mm'],
-                  ['M6', '6.4 mm', '12 mm', '18 mm'],
-                  ['M8', '8.4 mm', '16 mm', '24 mm'],
-                  ['M10', '10.5 mm', '20 mm', '30 mm'],
-                  ['M12', '13 mm', '24 mm', '37 mm'],
-                  ['M16', '17 mm', '30 mm', '50 mm'],
-                  ['M20', '21 mm', '37 mm', '60 mm'],
-                  ['M24', '25 mm', '44 mm', '72 mm'],
-                ].map((row, i) => (
-                  <tr key={row[0]} style={{ backgroundColor: i % 2 === 0 ? '#FFFFFF' : '#F8FAFC' }}>
-                    {row.map((cell, j) => (
-                      <td key={j} className={`p-3 text-center text-xs ${j === 0 ? 'font-bold text-slate-900' : 'text-slate-600'}`}>{cell}</td>
-                    ))}
                   </tr>
                 ))}
               </tbody>
@@ -267,7 +209,47 @@ const FastenerGuidesPanel = () => {
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
       <div className="space-y-3">
-        <Accordion title="Bolt Grade & Strength Reference" tag="Essential" isOpen={open === 0} onToggle={() => toggle(0)}>
+        <Accordion title="Bolt Selection" tag="Reference" isOpen={open === 0} onToggle={() => toggle(0)}>
+          <div className="space-y-3">
+            {[
+              { name: 'Hex head bolts (DIN 931 / 933, ISO 4014 / 4017)', desc: 'The standard choice for structural and machine assembly when you have side clearance for a spanner or socket. Partial thread keeps a stronger shank in shear planes; go full thread for thin stacks or long engagement.' },
+              { name: 'Flange & hex-flange bolts', desc: 'Integrated washer face spreads load and can reduce part count. Useful where alignment and bearing area matter on sheet metal or painted surfaces.' },
+              { name: 'Property class & nut matching', desc: 'Choose grade (e.g. 4.6, 8.8, 10.9) to match design load and standard. The nut must be equal or higher grade than the bolt—never downgrade the nut.' },
+              { name: 'Grip length & thread engagement', desc: 'The unthreaded grip should cover the joint stack. Verify minimum thread engagement in tapped holes or with nuts per your drawing or applicable standard.' },
+              { name: 'Coarse vs fine pitch', desc: 'Coarse is faster to assemble and most common. Fine pitch suits thin materials, adjustment, and some vibration-sensitive joints—always match male and female threads.' },
+            ].map((b) => (
+              <div key={b.name} className="flex items-start gap-3 rounded-xl p-3" style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0' }}>
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0A2540]" />
+                <div>
+                  <p className="text-sm font-bold text-slate-900">{b.name}</p>
+                  <p className="mt-0.5 text-xs leading-5 text-slate-600">{b.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Accordion>
+
+        <Accordion title="Screw Selection" tag="Reference" isOpen={open === 1} onToggle={() => toggle(1)}>
+          <div className="space-y-3">
+            {[
+              { name: 'Machine screws (metric / UNC)', desc: 'Used with threaded holes or nuts in precision assemblies, covers, and instruments. Pick length for full engagement without bottoming out.' },
+              { name: 'Sheet-metal & thread-forming screws', desc: 'For thin-gauge steel: cutting or forming threads without a tapped hole. Match point, pitch, and drill size to material thickness and hardness.' },
+              { name: 'Wood & chipboard screws', desc: 'Coarse threads and sharp points for timber and panels. Do not substitute these for machine screws in metal structural joints.' },
+              { name: 'Self-drilling (tek) screws', desc: 'Drill point pierces steel sheet in one step—common in HVAC, roofing, and cladding. Use the correct washer and load rating for the application.' },
+              { name: 'Head style & drive', desc: 'Countersunk when you need a flush surface; pan or cheese heads when height is acceptable. Torx or hex socket drive reduces cam-out versus Phillips under torque.' },
+            ].map((s) => (
+              <div key={s.name} className="flex items-start gap-3 rounded-xl p-3" style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0' }}>
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0A2540]" />
+                <div>
+                  <p className="text-sm font-bold text-slate-900">{s.name}</p>
+                  <p className="mt-0.5 text-xs leading-5 text-slate-600">{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Accordion>
+
+        <Accordion title="Bolt Grade & Strength Reference" tag="Essential" isOpen={open === 2} onToggle={() => toggle(2)}>
           <p className="mb-4 text-sm text-slate-600">Metric bolt property classes define both tensile and yield strength:</p>
           <div className="overflow-hidden rounded-xl" style={{ border: '1px solid #E2E8F0' }}>
             <table className="w-full">
@@ -301,7 +283,7 @@ const FastenerGuidesPanel = () => {
           </p>
         </Accordion>
 
-        <Accordion title="Thread Standards (Metric, UNC, BSW)" tag="Reference" isOpen={open === 1} onToggle={() => toggle(1)}>
+        <Accordion title="Thread Standards (Metric, UNC, BSW)" tag="Reference" isOpen={open === 3} onToggle={() => toggle(3)}>
           <div className="space-y-4">
             {[
               { std: 'Metric ISO (Most Common)', detail: 'Thread pitch expressed in mm. M10 × 1.5 means 10 mm diameter, 1.5 mm between threads. Used globally and as standard in India.', examples: ['M6 × 1.0', 'M8 × 1.25', 'M10 × 1.5', 'M12 × 1.75', 'M16 × 2.0'] },
@@ -321,7 +303,7 @@ const FastenerGuidesPanel = () => {
           </div>
         </Accordion>
 
-        <Accordion title="Surface Finish & Coating Guide" tag="Reference" isOpen={open === 2} onToggle={() => toggle(2)}>
+        <Accordion title="Surface Finish & Coating Guide" tag="Reference" isOpen={open === 4} onToggle={() => toggle(4)}>
           <div className="overflow-hidden rounded-xl" style={{ border: '1px solid #E2E8F0' }}>
             <table className="w-full">
               <thead>
@@ -338,7 +320,7 @@ const FastenerGuidesPanel = () => {
                   { f: 'Black Oxide', p: 'Minimal (oil dependent)', b: 'Socket screws, precision parts' },
                   { f: 'Phosphate', p: 'Moderate', b: 'Base coat for paint or oil' },
                   { f: 'Plain / Self Colour', p: 'None', b: 'Indoor, short-term or painted assemblies' },
-                  { f: 'Passivated (SS)', p: 'Excellent', b: 'Stainless steel in corrosive environments' },
+                  { f: 'Passivated (stainless)', p: 'Excellent', b: 'Stainless steel in corrosive environments' },
                 ].map((r, i) => (
                   <tr key={r.f} style={{ backgroundColor: i % 2 === 0 ? '#FFFFFF' : '#F8FAFC' }}>
                     <td className="p-3 text-xs font-semibold text-slate-900">{r.f}</td>
@@ -351,7 +333,7 @@ const FastenerGuidesPanel = () => {
           </div>
         </Accordion>
 
-        <Accordion title="Nut Selection Guide" tag="Reference" isOpen={open === 3} onToggle={() => toggle(3)}>
+        <Accordion title="Nut Selection Guide" tag="Reference" isOpen={open === 5} onToggle={() => toggle(5)}>
           <div className="space-y-3">
             {[
               { name: 'Hex Nut (DIN 934)', desc: 'Standard nut for all general applications. Available in all grades and materials.' },
@@ -415,7 +397,7 @@ const FastenerGuidesPanel = () => {
 ══════════════════════════════════════════════ */
 const faqs = [
   { q: 'What is the difference between DIN and ISO standards?', a: 'DIN (Deutsches Institut für Normung) is the German national standard; ISO is the international standard. Most modern DIN fastener standards have been harmonised with ISO equivalents; for example, DIN 933 (hex bolt, full thread) aligns with ISO 4017. We supply to both and can match your specific standard requirement.' },
-  { q: 'What material should I choose for outdoor or marine applications?', a: 'For basic outdoor use, zinc-plated carbon steel is sufficient. For humid or coastal environments, SS304 stainless steel is recommended. For marine, sea water, or chemical plant environments, SS316 is the correct choice due to its higher molybdenum content which resists chloride-induced corrosion.' },
+  { q: 'What material should I choose for outdoor or marine applications?', a: 'For basic outdoor use, zinc-plated carbon steel is sufficient. For humid or coastal environments, grade 304 stainless steel is recommended. For marine, sea water, or chemical plant environments, grade 316 is the correct choice due to its higher molybdenum content which resists chloride-induced corrosion.' },
   { q: 'Can you supply custom sizes and non-standard dimensions?', a: 'Yes, especially for washers, which is our primary manufactured product. We accept drawing-based custom orders with tolerances as tight as ±0.01 mm. Custom bolt lengths, special diameters, non-standard thread pitches, and OEM-specific designs are all possible. Contact us with your drawing or specification.' },
   { q: 'What is the minimum order quantity (MOQ)?', a: 'MOQ varies by product, material, and whether the item is standard or custom. For standard washers and fasteners, we can supply small quantities. For custom-manufactured washers, a minimum batch is typically required depending on tooling. Please share your requirement and we will advise on pricing and MOQ.' },
   { q: 'How do I calculate the correct washer size for a given bolt?', a: 'The washer inner diameter (ID) should be slightly larger than the bolt shank (typically bolt diameter + 0.3 to 0.5 mm). The outer diameter (OD) should be large enough to distribute load without interfering with adjacent features. For soft materials (aluminium, plastic, wood), use DIN 9021 large OD washers. Standard DIN/ISO washer sizes are pre-defined for each bolt size.' },
@@ -479,7 +461,7 @@ const FaqPanel = () => {
         <div className="rounded-2xl p-5" style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0' }}>
           <p className="text-xs font-extrabold uppercase tracking-widest text-[#0A2540]">Popular Topics</p>
           <div className="mt-3 flex flex-wrap gap-2">
-            {['Washer Sizes', 'Custom Orders', 'SS 304 vs 316', 'Bolt Grades', 'DIN vs ISO', 'Certificates'].map(t => (
+            {['Washer Sizes', 'Custom Orders', '304 vs 316', 'Bolt Grades', 'DIN vs ISO', 'Certificates'].map(t => (
               <button key={t} onClick={() => {}} className="rounded-full px-3 py-1 text-xs text-slate-600 transition hover:text-[#0A2540]" style={{ border: '1px solid #E2E8F0', backgroundColor: '#FFFFFF' }}>
                 {t}
               </button>

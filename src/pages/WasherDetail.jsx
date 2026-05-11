@@ -32,7 +32,7 @@ const WasherDetail = () => {
     <div className="min-h-screen bg-white">
 
       {/* HERO — navy + mesh (same as Knowledge Base / landing) */}
-      <section className="relative overflow-hidden py-20 lg:py-28" style={{ backgroundColor: HERO_BG_MESH }}>
+      <section className="relative overflow-hidden py-10 lg:py-14" style={{ backgroundColor: HERO_BG_MESH }}>
         <DarkMeshBackground />
         <div className="pointer-events-none absolute top-0 left-0 right-0 z-[1] h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.35) 60%, transparent)' }} />
 

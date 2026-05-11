@@ -7,11 +7,11 @@ import { companyInfo } from '../data/siteData';
 const VIDEO_ID = 'BkHrQxI2x0Q';
 
 const coreValues = [
-  "India's premier washer manufacturer: plain, spring, structural and custom types",
-  'Reliable supply of screws, nuts and bolts across India',
-  'Competitive pricing backed by timely dispatch and responsive service',
-  'Manufactured to ASTM, DIN, BS, GB, IS and all international standards',
-  'Carbon steel, stainless steel, brass, copper, aluminium, all materials available',
+  'Trusted manufacturer and exporter of industrial fasteners',
+  'Wide range of nuts, bolts, screws, washers, and custom solutions',
+  'Stainless steel, carbon steel, alloy steel, and other materials available',
+  'Competitive pricing with timely delivery and responsive service',
+  'Manufactured as per required industry and quality standards',
 ];
 
 const VideoPlayer = () => {
@@ -22,7 +22,7 @@ const VideoPlayer = () => {
         <iframe
           src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
           className="absolute inset-0 h-full w-full"
-          title="Mehej Fasteners Company Video"
+          title={`${companyInfo.name} — company video`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
@@ -60,38 +60,50 @@ const About = () => {
   return (
     <section id="about" className="section-space bg-white">
       <div className="container-main">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid gap-14 lg:grid-cols-2 lg:items-start lg:gap-16">
 
-          {/* VIDEO */}
+          {/* Left — video, then founders photo */}
           <motion.div
             initial={{ opacity: 0, x: -32 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7 }}
-            className="relative order-last lg:order-first"
+            className="relative flex flex-col gap-8 order-last lg:order-first"
           >
             <VideoPlayer />
+
+            <motion.figure
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.08 }}
+              className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-md"
+            >
+              <img
+                src="/assets/founders/mehej-founders.jpg"
+                alt={`${companyInfo.name} — founders and leadership`}
+                className="w-full aspect-[4/3] object-cover object-[center_22%] sm:aspect-[16/10]"
+              />
+              <figcaption className="border-t border-slate-100 bg-white px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em] text-slate-500 sm:text-sm">
+                Leadership — third generation stewardship of quality and precision
+              </figcaption>
+            </motion.figure>
           </motion.div>
 
-          {/* CONTENT */}
+          {/* Right — our story */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.06 }}
           >
             <SectionHeading
               eyebrow="About Us"
-              title="India's trusted washer manufacturer and fastener supplier."
+              title="India's trusted fastener manufacturer and supplier."
             />
 
             <p className="text-base leading-8 text-slate-600">{companyInfo.about}</p>
-            <p className="mt-4 text-base leading-8 text-slate-600">
-              We specialize in the{' '}
-              <span className="font-semibold text-slate-900">manufacturing and supply of precision washers</span>{' '}
-              across India, while also trading in all types of industrial fasteners including bolts, screws,
-              and nuts to serve complete fastening requirements.
-            </p>
+            <p className="mt-4 text-base leading-8 text-slate-600">{companyInfo.description}</p>
 
             <ul className="mt-8 space-y-3">
               {coreValues.map((val) => (

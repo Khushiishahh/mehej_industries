@@ -10,7 +10,7 @@ const timeline = [
   { year: '1990', title: 'Second Generation', desc: 'Mr. Mehul Shah took over and rebranded as Mehej Fasteners, expanding the product portfolio and modernizing operations.' },
   { year: '2005', title: 'Export Expansion', desc: 'Began exporting fasteners internationally, aligning products to ASTM, DIN, BS, GB, IS and other global standards.' },
   { year: '2015', title: 'Custom Manufacturing', desc: 'Launched custom size manufacturing capabilities, serving specialized requirements for aerospace, oil & gas, and heavy machinery clients.' },
-  { year: '2024', title: 'Third Generation', desc: 'Mr. Hem Shah leads the business into its third generation, continuing the tradition of quality, precision, and customer-first service.' },
+  { year: '2024', title: 'Third Generation', desc: 'Mr. Hem Shah and Mr. Jay Shah lead the business into its third generation, continuing the tradition of quality, precision, and customer-first service.' },
 ];
 
 const coreValues = [

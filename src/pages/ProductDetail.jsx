@@ -78,7 +78,6 @@ const ProductDetail = () => {
     );
   }
 
-  const Icon    = product.icon;
   const imgPool = typeImagePools[slug] || defaultPool;
   const typeImg = (i) => resolveTypeImage(product, i, imgPool);
 
@@ -102,56 +101,39 @@ const ProductDetail = () => {
       <section className="relative overflow-hidden" style={{ backgroundColor: HERO_BG_MESH }}>
         <DarkMeshBackground />
         <div className="pointer-events-none absolute top-0 left-0 right-0 z-[1] h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.35) 60%, transparent)' }} />
-        <div className="container-main relative z-10 py-16 lg:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-
-            <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <button
-                onClick={goBackToProducts}
-                className="mb-8 inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm text-slate-300 transition hover:text-white hover:border-slate-400"
-                style={{ borderColor: 'rgba(255,255,255,0.20)' }}
-              >
-                <FiArrowLeft size={16} /> Back to Products
-              </button>
-
-              <div className="inline-flex rounded-2xl border border-white/20 bg-white/10 p-4 text-white">
-                <Icon size={38} />
-              </div>
-
-              <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white lg:text-5xl">
-                {product.name}
-              </h1>
-              <p className="mt-4 text-lg leading-8 text-slate-300 max-w-lg">{product.intro}</p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href={`https://wa.me/91${companyInfo.phone}?text=${encodeURIComponent(`Hi, I'd like to enquire about your ${product.name} range.`)}`}
-                  target="_blank" rel="noreferrer"
-                  className="btn-whatsapp"
-                >
-                  <FiMessageCircle /> Get a Quote on WhatsApp
-                </a>
-                <a href="/catalogue" className="btn-primary">
-                  <FiDownload /> Download Catalogue
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative"
+        <div className="container-main relative z-10 py-10 lg:py-14">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
+          >
+            <button
+              onClick={goBackToProducts}
+              className="mb-6 inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm text-slate-300 transition hover:text-white hover:border-slate-400"
+              style={{ borderColor: 'rgba(255,255,255,0.20)' }}
             >
-              <div className="overflow-hidden rounded-2xl shadow-2xl">
-                <img src={product.image} alt={product.name} className="h-80 w-full object-cover lg:h-[420px]" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 hidden rounded-2xl border border-white/20 bg-black/50 px-5 py-3 shadow-lg backdrop-blur-sm sm:block">
-                <p className="text-xs font-bold uppercase tracking-widest text-white">Est.</p>
-                <p className="text-2xl font-extrabold text-white">1970</p>
-              </div>
-            </motion.div>
-          </div>
+              <FiArrowLeft size={16} /> Back to Products
+            </button>
+
+            <h1 className="text-4xl font-extrabold tracking-tight text-white lg:text-5xl">
+              {product.name}
+            </h1>
+            <p className="mt-4 text-lg leading-8 text-slate-300 max-w-lg">{product.intro}</p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href={`https://wa.me/91${companyInfo.phone}?text=${encodeURIComponent(`Hi, I'd like to enquire about your ${product.name} range.`)}`}
+                target="_blank" rel="noreferrer"
+                className="btn-whatsapp"
+              >
+                <FiMessageCircle /> Get a Quote on WhatsApp
+              </a>
+              <a href="/catalogue" className="btn-primary">
+                <FiDownload /> Download Catalogue
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -168,7 +150,7 @@ const ProductDetail = () => {
               <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
                 {product.name} Types
               </h2>
-              <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold text-slate-700">
+              <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-bold text-slate-700">
                 {product.types.length} variants available
               </span>
             </div>
@@ -204,8 +186,8 @@ const ProductDetail = () => {
                       style={{ background: 'linear-gradient(to top, rgba(10,37,64,0.12) 0%, transparent 55%)' }}
                     />
                   </div>
-                  <div className="p-3">
-                    <p className="text-xs font-bold leading-snug text-slate-800 group-hover:text-[#0A2540] transition-colors line-clamp-2">
+                  <div className="p-3.5 sm:p-4">
+                    <p className="text-sm font-extrabold leading-snug text-slate-800 sm:text-base group-hover:text-[#0A2540] transition-colors line-clamp-2">
                       {typeEntryLabel(type)}
                     </p>
                   </div>

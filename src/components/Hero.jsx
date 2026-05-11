@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiCheckCircle, FiChevronDown, FiShield, FiPackage, FiGlobe } from 'react-icons/fi';
+import { FiArrowRight, FiCheckCircle, FiChevronDown, FiShield, FiPackage, FiGlobe, FiTruck } from 'react-icons/fi';
 import DarkMeshBackground from './DarkMeshBackground';
 import { companyInfo } from '../data/siteData';
 
 const badges = ['Washer Specialists', 'ASTM • DIN • BS • IS', 'Custom Sizes', '50+ Years'];
 
 const trustBadges = [
-  { icon: FiShield,  label: 'ISO 9001:2015' },
+  { icon: FiShield, label: 'ISO 9001:2015' },
   { icon: FiPackage, label: '500+ Products' },
-  { icon: FiGlobe,   label: 'Pan-India Supply' },
+  { icon: FiTruck, label: 'Pan-India Supply' },
+  { icon: FiGlobe, label: 'Worldwide Delivery' },
 ];
 
 const Hero = () => {
@@ -68,7 +69,7 @@ const Hero = () => {
           >
             <span className="font-semibold text-white">{companyInfo.name}</span>, India's trusted manufacturer
             and supplier of precision washers, screws, nuts, bolts and all industrial fasteners.
-            Built to international standards, delivered pan-India.
+            Built to international standards, delivered Pan-India and worldwide.
           </motion.p>
 
           {/* Spec badges */}
@@ -90,22 +91,18 @@ const Hero = () => {
             ))}
           </motion.div>
 
-          {/* Made in India badge — flag SVG for visibility on dark bg */}
+          {/* Make in India — official mark only */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.75 }}
-            className="mt-5 inline-flex items-center gap-2.5 rounded-full border px-4 py-2"
-            style={{ borderColor: 'rgba(255,255,255,0.22)', backgroundColor: 'rgba(255,255,255,0.08)' }}
+            className="mt-5 flex justify-center"
           >
             <img
-              src="/india-flag.svg"
-              alt=""
-              className="h-7 w-[42px] shrink-0 rounded-sm border border-white/40 bg-white object-cover shadow-sm"
-              width="42"
-              height="28"
+              src="/make-in-india-logo.jpg"
+              alt="Make in India"
+              className="h-15 w-auto max-w-[min(200px,88vw)] object-contain opacity-95 sm:h-12.5"
             />
-            <span className="text-sm font-bold tracking-wide text-white">Made in India</span>
           </motion.div>
 
           {/* CTA buttons */}
@@ -131,7 +128,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.1 }}
-            className="mt-14 flex flex-wrap justify-center gap-6"
+            className="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-4"
           >
             {trustBadges.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2">
