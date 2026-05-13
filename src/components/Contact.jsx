@@ -42,6 +42,7 @@ const Contact = () => {
           title="Connect with us for product enquiries and business requirements."
           description="Send us your requirement and we will respond promptly with specifications, pricing, and availability."
           align="center"
+          compactMobile
         />
 
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">

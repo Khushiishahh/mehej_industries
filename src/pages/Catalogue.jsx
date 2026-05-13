@@ -28,8 +28,7 @@ const Catalogue = () => (
           </span>
           <h1 className="mt-2 text-4xl font-extrabold text-white lg:text-5xl">Product Catalogues</h1>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
-            Eight PDF downloads — washers, fasteners, and each specialist washer range.
-          </p>
+            Access eight PDF catalogues for washers, fasteners, and specialist washer products.          </p>
           <div className="mt-8 flex flex-wrap gap-4">
             {['ASTM • DIN • BS • IS', 'Direct PDF downloads', '8 catalogues'].map((tag) => (
               <span key={tag} className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold text-white">
@@ -92,10 +91,9 @@ const Catalogue = () => (
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-white/65">Need a mailed copy?</p>
             <h2 className="mt-2 text-2xl font-extrabold text-white lg:text-3xl">
-              Prefer WhatsApp or a printed catalogue — we can help.
-            </h2>
+                Prefer WhatsApp or a Printed Catalogue? We’re here to help. </h2>
             <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base">
-              Message us and we&apos;ll send the catalogues you need.
+              Message us and we'll send the catalogues you need.
             </p>
           </div>
           <div className="flex shrink-0 flex-wrap gap-3">

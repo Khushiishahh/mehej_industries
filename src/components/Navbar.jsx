@@ -215,13 +215,13 @@ const Navbar = () => {
                           type="button"
                           aria-expanded={moreExpanded}
                           onClick={() => setMoreExpanded((v) => !v)}
-                          className={`flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left text-base font-semibold transition ${
+                          className={`flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-semibold transition ${
                             moreExpanded ? 'bg-slate-50 text-[#0A2540]' : 'text-slate-800'
                           }`}
                         >
                           <span>{link.label}</span>
                           <FiChevronDown
-                            size={20}
+                            size={18}
                             className={`shrink-0 opacity-70 transition-transform duration-200 ${moreExpanded ? 'rotate-180' : ''}`}
                             aria-hidden
                           />
@@ -244,7 +244,7 @@ const Navbar = () => {
                                       setOpen(false);
                                       setMoreExpanded(false);
                                     }}
-                                    className={`border-b border-slate-50 px-5 py-3.5 text-base font-semibold leading-snug last:border-b-0 ${
+                                    className={`border-b border-slate-50 px-4 py-3 text-sm font-semibold leading-snug last:border-b-0 ${
                                       location.pathname === item.href
                                         ? 'bg-slate-50 text-[#0A2540]'
                                         : 'text-slate-700 active:bg-slate-50'
@@ -294,7 +294,7 @@ const Navbar = () => {
                 <a
                   href="#contact"
                   onClick={(e) => handleAnchor(e, '#contact')}
-                  className="mt-2 rounded-lg bg-[#0F2847] px-4 py-3 text-center text-sm font-bold text-white hover:bg-[#060E1A]"
+                  className="mt-4 rounded-lg bg-[#0F2847] px-4 py-3 text-center text-sm font-bold text-white hover:bg-[#060E1A]"
                 >
                   Get a Quote
                 </a>

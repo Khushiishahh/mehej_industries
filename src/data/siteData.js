@@ -39,8 +39,8 @@ export const companyInfo = {
   phone: '9819933344',
   founded: '1970',
   location: 'Mumbai, India',
-  about: `MEHEJ INDUSTRIES traces its roots back to 1970, when it was originally established as Vijay Hardware Stores by Mr. Mahipatbhai Shah in Mumbai. In 1999, Mr. Mehul Shah took over and expanded the business as Mehej Fasteners. The company scaled its global footprint in 2023, and since 2025 the third generation Mr. Hem Shah and Mr. Jay Shah lead operations with the same commitment to quality and precision.`,
-  description: `We specialize in the manufacturing, supply, and export of industrial fasteners including washers, nuts, bolts, screws, and customized fastening solutions. Our products are widely known for their durability, precision, and reliability across industries such as construction, automotive, infrastructure, oil & gas, and engineering.`,
+  about: `MEHEJ INDUSTRIES traces its roots to 1970, when Vijay Hardware Stores was established by Mr. Mahipatbhai Shah in Mumbai. In 1999, Mr. Mehul Shah expanded the business as Mehej Fasteners, laying the foundation for MEHEJ INDUSTRIES. The company strengthened its global presence in 2023, and since 2025, the third generation — Mr. Hem Shah and Mr. Jay Shah — continues the legacy of quality and precision.`,
+  description: `We manufacture, supply, and export industrial fasteners including washers, nuts, bolts, screws, and customized fastening solutions for industries such as construction, automotive, infrastructure, oil & gas, and engineering.`,
 };
 
 export const stats = [
