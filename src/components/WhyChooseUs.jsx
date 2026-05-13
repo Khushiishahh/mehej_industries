@@ -36,9 +36,7 @@ const WhyChooseUs = () => {
                 </div>
                 <h3 className="mt-5 text-lg font-extrabold text-slate-900">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
-                <div className="mt-4 flex items-center gap-1.5 text-xs font-bold text-slate-500 opacity-0 transition-all duration-300 group-hover:opacity-100">
-                  Learn More →
-                </div>
+                
               </motion.div>
             );
           })}
