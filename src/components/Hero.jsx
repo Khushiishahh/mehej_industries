@@ -46,19 +46,16 @@ const Hero = () => {
             India's Washer Specialists &bull; Since {companyInfo.founded}
           </motion.span>
 
-          {/* Main headline — brand first (helps search snippets + "MEHEJ INDUSTRIES" queries) */}
+          {/* Main headline — brand stays in intro line below + meta/JSON-LD for SEO */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.3 }}
-            className="mt-3"
+            className="mt-3 text-5xl font-black leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            <span className="block text-lg font-extrabold tracking-wide text-primary sm:text-xl lg:text-2xl">
-              {companyInfo.name}
-            </span>
-            <span className="mt-3 block text-5xl font-black leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Washers &amp; Industrial Fasteners
-            </span>
+            Washers &amp; Industrial
+            <br />
+            Fasteners
           </motion.h1>
 
           {/* Sub-description */}
