@@ -1,0 +1,5 @@
+# Full site is public; welcome search engines.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.mehejindustries.com/sitemap.xml
