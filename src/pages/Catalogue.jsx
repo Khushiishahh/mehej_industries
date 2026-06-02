@@ -68,7 +68,7 @@ const Catalogue = () => (
                 <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-600 sm:text-sm">{item.desc}</p>
                 <a
                   href={href}
-                  download={item.file}
+                  download={item.downloadAs ?? item.file}
                   className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 text-xs font-bold text-white shadow-sm transition hover:brightness-110 sm:text-sm"
                   style={{ backgroundColor: NAVY_DEEP }}
                 >

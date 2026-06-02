@@ -12,14 +12,14 @@ export const catalogueDownloads = [
   {
     id: 2,
     name: 'Bolts, Nuts & Screws',
-    file: 'BOLTS, NUTS & SCREWS CATALOGUE.pdf',
+    file: 'MEHEJ INDUSTRIES MASTER CATALOGUE.pdf',
     image: '/assets/product-types/bolts/bolt.jpg',
     desc: 'Traded range: hex bolts, nuts, machine and self-tapping screws, grades and finishes.',
   },
   {
     id: 3,
     name: 'Plain / Flat Washer',
-    file: 'PLAIN FLAT WASHER CATALOGUE.pdf',
+    file: 'PLAIN FLAT WASHERS CATALOGUE.pdf',
     image: '/assets/washer-plain.jpg',
     desc: 'DIN 125, DIN 9021, ISO 7089 / 7090, wide series and custom OD/thickness.',
   },
@@ -33,31 +33,31 @@ export const catalogueDownloads = [
   {
     id: 5,
     name: 'Internal / External Lock Washer',
-    file: 'INTERNAL EXTERNAL LOCK WASHER CATALOGUE.pdf',
+    file: 'INTERNAL EXTENAL LOCK WASHER CATALOGUE.pdf',
     image: '/assets/washer-lock.jpg',
     desc: 'Internal and external tooth lock washers (DIN 6797) for vibration-prone joints.',
   },
   {
     id: 6,
     name: 'Wave Washer',
-    file: 'WAVE WASHER CATALOGUE.pdf',
+    file: 'WAVE WASHERS CATALOGUE.pdf',
     image: '/assets/washer-wave.jpg',
     desc: 'Single- and multi-wave washers — axial spring load in minimal space.',
   },
   {
     id: 7,
     name: 'Tab Washer',
-    file: 'TAB WASHER CATALOGUE.pdf',
+    file: 'TAB WASHERS CATALOGUE.pdf',
     image: '/assets/washer-tab.jpg',
     desc: 'Single-, double- and multi-tab positive locking washers (DIN 93, DIN 432).',
   },
   {
     id: 8,
     name: 'Other Washer Catalogue',
-    file: 'OTHER WASHER CATALOGUE.pdf',
+    file: 'OTHER WASHERS CATALOGUE.pdf',
     image: '/assets/washer-custom.jpg',
     desc: 'Serrated, sealing, shim, Belleville / disc spring and specials — bespoke sizes on request.',
   },
 ];
 
-export const cataloguePdfHref = (file) => `/catalogues/${file}`;
+export const cataloguePdfHref = (file) => `/catalogues/${encodeURIComponent(file)}`;
