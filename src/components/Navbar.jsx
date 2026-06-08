@@ -98,18 +98,17 @@ const Navbar = () => {
             className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3"
           >
             <img
-              src="/favicon.svg"
+              src="/logo.png"
               alt={`${companyInfo.name} logo`}
-              className={`h-10 w-10 rounded-md object-contain transition-all duration-300 ${scrolled ? 'sm:h-9 sm:w-9' : 'sm:h-10 sm:w-10'}`}
-            />
-            <span className="hidden min-[420px]:block leading-tight">
-              <span className="block text-[0.8rem] font-extrabold tracking-wide text-[#0A2540] sm:text-[0.9rem]">
-                {companyInfo.name}
-              </span>
-              <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-slate-500 sm:text-[0.66rem]">
-                {companyInfo.tagline}
-              </span>
-            </span>
+              className={`object-contain transition-all duration-300 ${scrolled ? 'h-12 w-12' : 'h-14 w-14'}`}
+              />
+            <img
+             src="/logo-text.png"
+             alt={`${companyInfo.name} – ${companyInfo.tagline}`}
+             className={`hidden min-[420px]:block object-contain transition-all duration-300 ${scrolled ? 'h-10' : 'h-11'}`}
+             width="100"
+             height="100"
+           />
           </a>
 
           {/* DESKTOP NAV — xl+ avoids cramped / overlapping rows on laptops 1024–1279 */}
