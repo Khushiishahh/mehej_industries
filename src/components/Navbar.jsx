@@ -100,14 +100,13 @@ const Navbar = () => {
             <img
               src="/logo.png"
               alt={`${companyInfo.name} logo`}
-              className={`object-contain transition-all duration-300 ${scrolled ? 'h-12 w-12' : 'h-14 w-14'}`}
+              className={`object-contain transition-all duration-300 ${scrolled ? 'h-10 w-10' : 'h-11 w-11'}`}
               />
             <img
              src="/logo-text.png"
              alt={`${companyInfo.name} – ${companyInfo.tagline}`}
              className={`hidden min-[420px]:block object-contain transition-all duration-300 ${scrolled ? 'h-10' : 'h-11'}`}
-             width="100"
-             height="100"
+             style={{ width: 'auto', height: '44px' }}
            />
           </a>
 
