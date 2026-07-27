@@ -6,7 +6,6 @@ import { companyInfo } from '../data/siteData';
 const badges = ['Washer Specialists', 'ASTM • DIN • BS • IS', 'Custom Sizes', '50+ Years'];
 
 const trustBadges = [
-  { icon: FiShield, label: 'ISO 9001:2015' },
   { icon: FiPackage, label: '500+ Products' },
   { icon: FiTruck, label: 'Pan-India Supply' },
   { icon: FiGlobe, label: 'Worldwide Delivery' },
