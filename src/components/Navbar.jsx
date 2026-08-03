@@ -11,14 +11,12 @@ const morePageLinks = [
 ];
 
 const navLinks = [
-  { label: 'Home',       type: 'anchor', anchor: '#home' },
-  { label: 'About',      type: 'anchor', anchor: '#about' },
-  { label: 'Products',   type: 'anchor', anchor: '#products' },
-  { label: 'Industries', type: 'anchor', anchor: '#industries' },
-  { label: 'Catalogue',  type: 'route',  href: '/catalogue' },
-  { label: 'Resources',  type: 'route',  href: '/resources' },
-  { label: 'More pages', type: 'more',   items: morePageLinks },
-  { label: 'Why Us',     type: 'anchor', anchor: '#why-us' },
+  { label: 'Home',       type: 'route', href: '/' },
+  { label: 'Products',   type: 'route', href: '/products' },
+  { label: 'Catalogue',  type: 'route', href: '/catalogue' },
+  { label: 'Industries', type: 'route', href: '/industries' },
+  { label: 'Resources',  type: 'route', href: '/resources' },
+  { label: 'More pages', type: 'more',  items: morePageLinks },
   { label: 'Contact',    type: 'anchor', anchor: '#contact' },
 ];
 
