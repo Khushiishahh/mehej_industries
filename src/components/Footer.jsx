@@ -127,13 +127,16 @@ const Footer = () => {
         </div>
 
         <div
-          className="mt-12 flex flex-col gap-2 border-t pt-6 sm:flex-row sm:items-center sm:justify-between"
-          style={{ borderColor: NAVY_BORDER }}
+          className="mt-12 flex flex-col gap-3 border-t pt-6 text-sm sm:flex-row sm:items-center sm:justify-between"
+          style={{ borderColor: NAVY_BORDER, color: '#94A3B8' }}
         >
-          <p className="text-sm" style={{ color: '#94A3B8' }}>
+          <p>
             © {new Date().getFullYear()} {companyInfo.name}. All rights reserved.
           </p>
-          <p className="text-sm" style={{ color: '#94A3B8' }}>Est. {companyInfo.founded} &middot; Mumbai, India</p>
+          <p>
+            Designed &amp; Developed by Khushi Shah
+          </p>
+          <p>Est. {companyInfo.founded} &middot; Mumbai, India</p>
         </div>
       </div>
     </footer>

@@ -5,6 +5,7 @@ import { FiArrowUp } from 'react-icons/fi';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Contact from './components/Contact';
 import ProductDetail from './pages/ProductDetail';
 import Catalogue from './pages/Catalogue';
 import AboutPage from './pages/AboutPage';
