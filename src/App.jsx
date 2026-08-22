@@ -8,8 +8,6 @@ import Home from './pages/Home';
 import Contact from './components/Contact';
 import ProductDetail from './pages/ProductDetail';
 import Products from './components/Products';
-import WasherCarousel from './components/WasherCarousel';
-import OtherProducts from './components/OtherProducts';
 import Catalogue from './pages/Catalogue';
 import AboutPage from './pages/AboutPage';
 import QualityPage from './pages/QualityPage';
