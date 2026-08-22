@@ -7,7 +7,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Contact from './components/Contact';
 import ProductDetail from './pages/ProductDetail';
-import Products from './components/Products';
 import Catalogue from './pages/Catalogue';
 import AboutPage from './pages/AboutPage';
 import QualityPage from './pages/QualityPage';
@@ -59,12 +58,13 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
         <Route path="/products/:slug" element={<ProductDetail />} />
-        <Route path="/washers" element={<WasherCarousel />} />
-        <Route path="/other-products" element={<OtherProducts />} />
+        <Route path="/washers/:slug" element={<WasherDetail />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/catalogue" element={<Catalogue />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/quality" element={<QualityPage />} />
+        <Route path="/industries" element={<IndustriesPage />} />
       </Routes>
       <Footer />
       <ScrollToTop />
