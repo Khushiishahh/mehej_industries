@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FiArrowUp } from 'react-icons/fi';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Products from './components/Products';
 import Home from './pages/Home';
 import Contact from './components/Contact';
 import ProductDetail from './pages/ProductDetail';
@@ -58,6 +59,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/products/:slug" element={<ProductDetail />} />
         <Route path="/washers/:slug" element={<WasherDetail />} />
         <Route path="/resources" element={<ResourcesPage />} />
